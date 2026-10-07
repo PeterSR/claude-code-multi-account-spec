@@ -1,0 +1,66 @@
+{
+  "id": "a4-claim-conflict-not-reached-env",
+  "description": "env selection never consults claims",
+  "spec": [
+    "A4 Step 1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/dev",
+  "env": {
+    "CLAUDE_MULTI_ACCOUNT": "work"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    },
+    "/home/p/.claude-personal/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/home/p/.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "env",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "ENV_NOT_APPLIED"
+      ],
+      "applied": false,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/home/p/.claude-work/.claude.json"
+    }
+  }
+}

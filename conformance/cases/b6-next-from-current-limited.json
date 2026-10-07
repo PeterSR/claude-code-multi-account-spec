@@ -1,0 +1,49 @@
+{
+  "id": "b6-next-from-current-limited",
+  "description": "current itself may be limited",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-c": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": [{\"window\": \"five_hour\", \"model\": null, \"until\": \"2026-10-09T14:00:00Z\", \"reason\": \"rate_limit\", \"updatedBy\": \"x\", \"updatedAt\": \"2026-10-01T00:00:00Z\"}]}",
+      "mode": "0600"
+    }
+  },
+  "op": {
+    "name": "next_from",
+    "args": {
+      "candidates": [
+        "a",
+        "b",
+        "c"
+      ],
+      "current": "a"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "b"
+    }
+  }
+}

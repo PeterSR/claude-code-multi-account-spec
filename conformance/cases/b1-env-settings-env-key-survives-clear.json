@@ -1,0 +1,54 @@
+{
+  "id": "b1-env-settings-env-key-survives-clear",
+  "description": "a key from the settings env block cannot be cleared by the delta",
+  "spec": [
+    "B1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "ANTHROPIC_API_KEY": "k"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/settings.json": {
+      "type": "file",
+      "content": "{\"env\": {\"ANTHROPIC_API_KEY\": \"k\"}}"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "work",
+      "clearAuthOverrides": true
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+        "CLAUDE_MULTI_ACCOUNT": "work"
+      },
+      "unset": [
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_AUTH_TOKEN",
+        "ANTHROPIC_PROFILE",
+        "CLAUDE_CODE_OAUTH_TOKEN",
+        "CLAUDE_CODE_USE_BEDROCK",
+        "CLAUDE_CODE_USE_FOUNDRY",
+        "CLAUDE_CODE_USE_VERTEX",
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": [
+        "ANTHROPIC_API_KEY"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "a3-spec-file-default",
+  "description": "default reads ~/.claude",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"label\": \"d\"}"
+    }
+  },
+  "op": {
+    "name": "spec_file",
+    "args": {
+      "name": "default"
+    }
+  },
+  "expect": {
+    "result": {
+      "version": 1,
+      "label": "d"
+    }
+  }
+}

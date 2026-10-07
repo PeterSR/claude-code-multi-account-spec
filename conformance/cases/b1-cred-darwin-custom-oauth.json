@@ -1,0 +1,45 @@
+{
+  "id": "b1-cred-darwin-custom-oauth",
+  "description": "darwin: custom oauth suffix in the service",
+  "spec": [
+    "B1",
+    "A1",
+    "A2 Canonical path"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {
+    "USER": "user",
+    "CLAUDE_CODE_CUSTOM_OAUTH_URL": "https://x.test"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "credential_locations",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "locations": [
+        {
+          "keychain": {
+            "service": "Claude Code-custom-oauth-credentials-959cec09",
+            "account": "user"
+          }
+        },
+        {
+          "file": "/Users/p/.claude-work/.credentials.json"
+        }
+      ]
+    }
+  }
+}

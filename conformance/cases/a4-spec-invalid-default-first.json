@@ -1,0 +1,37 @@
+{
+  "id": "a4-spec-invalid-default-first",
+  "description": "default is checked before named accounts",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/.multi-account.json": {
+      "type": "file",
+      "content": "x"
+    },
+    "/home/p/.claude/.multi-account.json": {
+      "type": "file",
+      "content": "x"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "SPEC_FILE_INVALID",
+      "path": "/home/p/.claude/.multi-account.json"
+    }
+  }
+}

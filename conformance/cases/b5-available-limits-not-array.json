@@ -1,0 +1,34 @@
+{
+  "id": "b5-available-limits-not-array",
+  "description": "limits that is not an array reads as empty",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": \"x\"}"
+    }
+  },
+  "op": {
+    "name": "available",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "available": true
+    }
+  }
+}

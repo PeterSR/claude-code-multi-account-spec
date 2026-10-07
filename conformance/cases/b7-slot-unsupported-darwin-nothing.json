@@ -1,0 +1,29 @@
+{
+  "id": "b7-slot-unsupported-darwin-nothing",
+  "description": "unsupported beats broken",
+  "spec": [
+    "B7"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "unsupported",
+      "name": null
+    }
+  }
+}

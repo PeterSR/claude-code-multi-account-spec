@@ -1,0 +1,68 @@
+{
+  "id": "b7-activate-claude-json-link-refused",
+  "description": "a target whose .claude.json is a link would make a chain",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-personal/.credentials.json": {
+      "type": "file",
+      "content": "pc"
+    },
+    "/home/p/.claude-work/.credentials.json": {
+      "type": "file",
+      "content": "wc"
+    },
+    "/home/p/.claude-personal/.claude.json": {
+      "type": "symlink",
+      "target": "/data/j"
+    },
+    "/data/j": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_TARGET_INVALID",
+      "path": "/home/p/.claude-personal/.claude.json"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    }
+  }
+}

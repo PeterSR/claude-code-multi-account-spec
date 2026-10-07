@@ -1,0 +1,70 @@
+{
+  "id": "a2-discover-same-inode-different-dev",
+  "description": "equal inode on a different device is not an alias",
+  "spec": [
+    "A2 Relocation"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-x": {
+      "type": "dir",
+      "inode": 5
+    },
+    "/home/p/.claude-y": {
+      "type": "dir",
+      "inode": 5,
+      "dev": 2
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "x",
+          "configDir": "/home/p/.claude-x",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "y",
+          "configDir": "/home/p/.claude-y",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "a3-spec-priority-integer-valued-float",
+  "description": "priority 2.0 is an integer value",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"priority\": 2.0}"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "/home/p/.claude-work",
+          "state": "ok",
+          "hasSpecFile": true,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

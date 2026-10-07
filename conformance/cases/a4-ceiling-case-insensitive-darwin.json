@@ -1,0 +1,68 @@
+{
+  "id": "a4-ceiling-case-insensitive-darwin",
+  "description": "on a case-insensitive fs the ceiling matches ignoring case",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p/proj/sub",
+  "env": {},
+  "options": {
+    "ceilingDirs": [
+      "/users/P/PROJ"
+    ]
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "/Users/p/proj/sub": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "/Users/p/.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "/Users/p/.claude.json"
+    }
+  }
+}

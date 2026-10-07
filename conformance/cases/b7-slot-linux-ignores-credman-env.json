@@ -1,0 +1,44 @@
+{
+  "id": "b7-slot-linux-ignores-credman-env",
+  "description": "the Windows variable means nothing on linux",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CODE_FORCE_WINDOWS_CREDMAN": "1"
+  },
+  "options": {
+    "canCreateSymlinks": false
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "unmanaged",
+      "name": null
+    }
+  }
+}

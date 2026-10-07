@@ -1,0 +1,27 @@
+{
+  "id": "a2-canonical-nfc",
+  "description": "canonical path is NFC normalised (home given in NFD)",
+  "spec": [
+    "A2 Canonical path",
+    "A1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/josé",
+  "cwd": "/home/josé",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {},
+  "op": {
+    "name": "canonical_path",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "path": "/home/josé/.claude-work"
+    }
+  }
+}

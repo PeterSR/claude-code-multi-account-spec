@@ -1,0 +1,56 @@
+{
+  "id": "b7-adopt-conflict-inner-claude-json",
+  "description": "both ~/.claude.json and ~/.claude/.claude.json exist: refuse, change nothing",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    },
+    "/home/p/.claude/.claude.json": {
+      "type": "file",
+      "content": "{\"inner\":1}"
+    }
+  },
+  "op": {
+    "name": "adopt",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_CONFLICT",
+      "path": "/home/p/.claude/.claude.json"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude/.claude.json": {
+      "content": "{\"inner\":1}"
+    },
+    "/home/p/.claude.json": {
+      "content": "{\"a\":1}"
+    },
+    "/home/p/.claude-work": null,
+    "/home/p/.claude-slot.lock": null
+  }
+}

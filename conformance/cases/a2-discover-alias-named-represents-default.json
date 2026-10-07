@@ -1,0 +1,59 @@
+{
+  "id": "a2-discover-alias-named-represents-default",
+  "description": "default linked to a named account: the named account represents the group, default carries aliasOf",
+  "spec": [
+    "A2 Relocation",
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": "work",
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "/home/p/.claude-work",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

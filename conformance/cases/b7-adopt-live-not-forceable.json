@@ -1,0 +1,53 @@
+{
+  "id": "b7-adopt-live-not-forceable",
+  "description": "force never overrides a live session",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    },
+    "/home/p/.claude/sessions/55.json": {
+      "type": "file",
+      "content": "{\"pid\": 55, \"sessionId\": \"live-default\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "processes": {
+    "55": {
+      "procStart": "T1",
+      "pidDomain": "host-1"
+    }
+  },
+  "op": {
+    "name": "adopt",
+    "args": {
+      "name": "work",
+      "force": true
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SESSION_LIVE",
+      "path": null
+    }
+  }
+}

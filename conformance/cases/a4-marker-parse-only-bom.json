@@ -1,0 +1,35 @@
+{
+  "id": "a4-marker-parse-only-bom",
+  "description": "only a BOM",
+  "spec": [
+    "A4 Marker parsing"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "﻿"
+    }
+  },
+  "op": {
+    "name": "parse_marker",
+    "args": {
+      "path": "/home/p/proj/.claude-account"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "MARKER_INVALID",
+      "path": "/home/p/proj/.claude-account"
+    }
+  }
+}

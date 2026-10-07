@@ -1,0 +1,61 @@
+{
+  "id": "b7-activate-win32-remove-then-create",
+  "description": "win32 replaces the junction by removing and re-creating it, the file link by rename",
+  "spec": [
+    "B7"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude": {
+      "type": "junction",
+      "target": "C:\\Users\\p\\.claude-work"
+    },
+    "C:\\Users\\p\\.claude.json": {
+      "type": "symlink",
+      "target": "C:\\Users\\p\\.claude-work\\.claude.json"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "C:\\Users\\p\\.claude-personal\\.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "result": {
+      "state": "managed",
+      "name": "personal"
+    }
+  },
+  "expectFs": {
+    "C:\\Users\\p\\.claude": {
+      "type": "junction",
+      "target": "C:\\Users\\p\\.claude-personal"
+    },
+    "C:\\Users\\p\\.claude.json": {
+      "type": "symlink",
+      "target": "C:\\Users\\p\\.claude-personal\\.claude.json"
+    },
+    "C:\\Users\\p\\.claude-slot.lock": null
+  }
+}

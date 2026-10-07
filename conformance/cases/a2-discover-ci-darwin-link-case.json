@@ -1,0 +1,58 @@
+{
+  "id": "a2-discover-ci-darwin-link-case",
+  "description": "case-insensitive fs: a link target spelled in other case still resolves",
+  "spec": [
+    "A2 Discovery"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work": {
+      "type": "symlink",
+      "target": "/DATA/Work"
+    },
+    "/data/work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/Users/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "/Users/p/.claude-work",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

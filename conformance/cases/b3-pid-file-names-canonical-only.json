@@ -1,0 +1,79 @@
+{
+  "id": "b3-pid-file-names-canonical-only",
+  "description": "only canonical decimal pid file names count",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/sessions/123.json": {
+      "type": "file",
+      "content": "{\"pid\": 123, \"sessionId\": \"s-123\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/0123.json": {
+      "type": "file",
+      "content": "{\"pid\": 123, \"sessionId\": \"s-123\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/١٢.json": {
+      "type": "file",
+      "content": "{\"pid\": 12, \"sessionId\": \"s-12\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/99999999999999999999.json": {
+      "type": "file",
+      "content": "{\"pid\": 1, \"sessionId\": \"s-1\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/0.json": {
+      "type": "file",
+      "content": "{\"pid\": 1, \"sessionId\": \"s-1\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/12345678901.json": {
+      "type": "file",
+      "content": "{\"pid\": 1, \"sessionId\": \"s-1\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/1234567890.json": {
+      "type": "file",
+      "content": "{\"pid\": 1234567890, \"sessionId\": \"s-1234567890\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/+5.json": {
+      "type": "file",
+      "content": "{\"pid\": 5, \"sessionId\": \"s-5\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    },
+    "/home/p/.claude-work/sessions/1e3.json": {
+      "type": "file",
+      "content": "{\"pid\": 1000, \"sessionId\": \"s-1000\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "processes": {},
+  "callerPidDomain": "host-1",
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "pid": 123,
+          "sessionId": "s-123",
+          "status": "dead"
+        },
+        {
+          "pid": 1234567890,
+          "sessionId": "s-1234567890",
+          "status": "dead"
+        }
+      ]
+    }
+  }
+}

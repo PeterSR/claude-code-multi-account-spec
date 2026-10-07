@@ -1,0 +1,53 @@
+{
+  "id": "b6-next-from-alias-current-default",
+  "description": "with the slot on work, current default is work: the next one is personal",
+  "spec": [
+    "B6",
+    "A2 Relocation"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-personal": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "next_from",
+    "args": {
+      "candidates": [
+        "work",
+        "personal"
+      ],
+      "current": "default"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "personal"
+    }
+  }
+}

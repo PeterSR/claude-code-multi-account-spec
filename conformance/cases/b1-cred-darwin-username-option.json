@@ -1,0 +1,44 @@
+{
+  "id": "b1-cred-darwin-username-option",
+  "description": "with USER unset the OS user name input is used",
+  "spec": [
+    "B1",
+    "A1",
+    "A2 Canonical path"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {
+    "userName": "osuser.1"
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "credential_locations",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "locations": [
+        {
+          "keychain": {
+            "service": "Claude Code-credentials-959cec09",
+            "account": "osuser.1"
+          }
+        },
+        {
+          "file": "/Users/p/.claude-work/.credentials.json"
+        }
+      ]
+    }
+  }
+}

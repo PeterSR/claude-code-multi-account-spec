@@ -1,0 +1,37 @@
+{
+  "id": "a4-marker-parse-unreadable-parent-dir",
+  "description": "an unreadable parent means no marker",
+  "spec": [
+    "A4 Marker parsing"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/locked": {
+      "type": "dir",
+      "unreadable": true
+    }
+  },
+  "op": {
+    "name": "parse_marker",
+    "args": {
+      "path": "/home/p/locked/.claude-account"
+    }
+  },
+  "expect": {
+    "result": {
+      "kind": "none",
+      "name": null,
+      "pool": null,
+      "candidates": []
+    }
+  }
+}

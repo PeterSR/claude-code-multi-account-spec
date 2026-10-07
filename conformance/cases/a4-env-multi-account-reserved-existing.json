@@ -1,0 +1,63 @@
+{
+  "id": "a4-env-multi-account-reserved-existing",
+  "description": "reserved but existing account resolves with RESERVED_NAME",
+  "spec": [
+    "A2 Names",
+    "A4 Step 1.3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_MULTI_ACCOUNT": "profiles"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-profiles": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "profiles",
+      "pool": null,
+      "configDir": "/home/p/.claude-profiles",
+      "canonical": true,
+      "reason": null,
+      "source": "env",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-profiles",
+          "CLAUDE_MULTI_ACCOUNT": "profiles"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "RESERVED_NAME",
+        "ENV_NOT_APPLIED"
+      ],
+      "applied": false,
+      "candidates": [
+        "profiles"
+      ],
+      "globalConfig": "/home/p/.claude-profiles/.claude.json"
+    }
+  }
+}

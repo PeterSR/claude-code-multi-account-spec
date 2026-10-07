@@ -1,0 +1,34 @@
+{
+  "id": "b5-available-offset-until",
+  "description": "an offset until is an instant",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": [{\"window\": \"five_hour\", \"model\": null, \"until\": \"2026-10-06T23:00:00+09:00\", \"reason\": \"rate_limit\", \"updatedBy\": \"x\"}]}"
+    }
+  },
+  "op": {
+    "name": "available",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "available": false
+    }
+  }
+}

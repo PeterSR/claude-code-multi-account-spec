@@ -1,0 +1,45 @@
+{
+  "id": "b5-mark-invalid-until-word",
+  "description": "until 'tomorrow' is INVALID_ENTRY",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "mark_limited",
+    "args": {
+      "name": "work",
+      "entry": {
+        "window": "seven_day",
+        "model": "opus",
+        "until": "tomorrow",
+        "reason": "rate_limit",
+        "updatedBy": "my-swapper"
+      }
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "INVALID_ENTRY",
+      "path": null
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account-state.json": null,
+    "/home/p/.claude-work/.multi-account-state.json.lock": null
+  }
+}

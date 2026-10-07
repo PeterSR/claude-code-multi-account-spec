@@ -1,0 +1,36 @@
+{
+  "id": "a4-env-multi-account-unreadable",
+  "description": "unreadable account is ACCOUNT_UNAVAILABLE",
+  "spec": [
+    "A4 Step 1.3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_MULTI_ACCOUNT": "work"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "symlink",
+      "target": "/mnt/locked/w",
+      "unreadable": true
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_UNAVAILABLE",
+      "path": "/home/p/.claude-work"
+    }
+  }
+}

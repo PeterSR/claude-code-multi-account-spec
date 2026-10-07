@@ -1,0 +1,61 @@
+{
+  "id": "a4-claim-win32-tilde",
+  "description": "win32 ~/ claim expands against home with backslashes",
+  "spec": [
+    "A3"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p\\dev",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    },
+    "C:\\Users\\p\\dev": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "C:\\Users\\p\\.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "claim",
+      "matchedPath": "C:\\Users\\p\\dev",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "C:\\Users\\p\\.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "C:\\Users\\p\\.claude-work\\.claude.json"
+    }
+  }
+}

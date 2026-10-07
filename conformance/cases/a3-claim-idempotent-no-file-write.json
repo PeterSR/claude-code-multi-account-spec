@@ -1,0 +1,53 @@
+{
+  "id": "a3-claim-idempotent-no-file-write",
+  "description": "an idempotent claim does not touch the file",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/srv/a\"], \"x\": 1}",
+      "mtime": "2026-10-01T10:00:00Z"
+    },
+    "/srv/a": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "work",
+      "dir": "/srv/a"
+    }
+  },
+  "expect": {
+    "result": {
+      "directories": [
+        "/srv/a"
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account.json": {
+      "contentJson": {
+        "version": 1,
+        "directories": [
+          "/srv/a"
+        ],
+        "x": 1
+      }
+    },
+    "/home/p/.claude-work/.multi-account.json.lock": null
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b4-sessions-for-other-project-not-listed",
+  "description": "another project folder is not read",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/projects/-home-p-other/x-1.jsonl": {
+      "type": "file",
+      "content": "x"
+    }
+  },
+  "op": {
+    "name": "sessions_for",
+    "args": {
+      "name": "work",
+      "cwd": "/home/p/proj"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": []
+    }
+  }
+}

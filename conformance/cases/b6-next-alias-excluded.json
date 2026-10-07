@@ -1,0 +1,43 @@
+{
+  "id": "b6-next-alias-excluded",
+  "description": "alias of a member is not a member",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\"}"
+    },
+    "/home/p/.claude-b": {
+      "type": "symlink",
+      "target": "/home/p/.claude-a"
+    },
+    "/home/p/.claude-c/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\", \"priority\": -1}"
+    }
+  },
+  "op": {
+    "name": "next",
+    "args": {
+      "pool": "p",
+      "current": "a"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "c"
+    }
+  }
+}

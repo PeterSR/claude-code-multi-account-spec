@@ -1,0 +1,68 @@
+{
+  "id": "a4-marker-env-beats-marker",
+  "description": "env selection beats a directory marker",
+  "spec": [
+    "A4 Step 1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {
+    "CLAUDE_MULTI_ACCOUNT": "personal"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "work\n"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-personal": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "personal",
+      "pool": null,
+      "configDir": "/home/p/.claude-personal",
+      "canonical": true,
+      "reason": null,
+      "source": "env",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-personal",
+          "CLAUDE_MULTI_ACCOUNT": "personal"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "ENV_NOT_APPLIED"
+      ],
+      "applied": false,
+      "candidates": [
+        "personal"
+      ],
+      "globalConfig": "/home/p/.claude-personal/.claude.json"
+    }
+  }
+}

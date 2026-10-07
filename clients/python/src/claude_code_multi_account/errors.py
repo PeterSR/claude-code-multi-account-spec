@@ -1,0 +1,47 @@
+"""Error type and code constants shared by every operation."""
+
+from __future__ import annotations
+
+INVALID_NAME = "INVALID_NAME"
+RESERVED_NAME = "RESERVED_NAME"
+ACCOUNT_NOT_FOUND = "ACCOUNT_NOT_FOUND"
+ACCOUNT_UNAVAILABLE = "ACCOUNT_UNAVAILABLE"
+ACCOUNT_EXISTS = "ACCOUNT_EXISTS"
+ENV_CONFLICT = "ENV_CONFLICT"
+MARKER_INVALID = "MARKER_INVALID"
+CLAIM_CONFLICT = "CLAIM_CONFLICT"
+SPEC_FILE_INVALID = "SPEC_FILE_INVALID"
+SESSION_LIVE = "SESSION_LIVE"
+SESSION_EXISTS = "SESSION_EXISTS"
+SESSION_NOT_FOUND = "SESSION_NOT_FOUND"
+INVALID_SESSION_ID = "INVALID_SESSION_ID"
+SAME_ACCOUNT = "SAME_ACCOUNT"
+STATE_FILE_INVALID = "STATE_FILE_INVALID"
+INVALID_ENTRY = "INVALID_ENTRY"
+SLOT_CONFLICT = "SLOT_CONFLICT"
+SLOT_TARGET_INVALID = "SLOT_TARGET_INVALID"
+IO_ERROR = "IO_ERROR"
+SLOT_UNSUPPORTED = "SLOT_UNSUPPORTED"
+SLOT_STATE = "SLOT_STATE"
+DESTINATION_BLOCKED = "DESTINATION_BLOCKED"
+LOCK_BUSY = "LOCK_BUSY"
+
+EMPTY_ENV = "EMPTY_ENV"
+ENV_NOT_APPLIED = "ENV_NOT_APPLIED"
+NON_CANONICAL_CONFIG_DIR = "NON_CANONICAL_CONFIG_DIR"
+NOT_A_DIRECTORY = "NOT_A_DIRECTORY"
+MARKER_IGNORED_IN_REPO = "MARKER_IGNORED_IN_REPO"
+CANDIDATE_UNAVAILABLE = "CANDIDATE_UNAVAILABLE"
+
+
+class MultiAccountError(Exception):
+    """A spec error: a stable `code`, a human `message` and, where relevant, a `path`."""
+
+    def __init__(self, code: str, message: str | None = None, path: str | None = None) -> None:
+        super().__init__(message or code)
+        self.code = code
+        self.message = message or code
+        self.path = path
+
+    def __repr__(self) -> str:
+        return f"MultiAccountError({self.code!r}, path={self.path!r})"

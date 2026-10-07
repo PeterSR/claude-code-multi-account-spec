@@ -1,0 +1,35 @@
+{
+  "id": "a2-create-exists-file",
+  "description": "create on an existing non-directory entry",
+  "spec": [
+    "A2 Create"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "file",
+      "content": "x"
+    }
+  },
+  "op": {
+    "name": "create",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_EXISTS",
+      "path": "/home/p/.claude-work"
+    }
+  }
+}

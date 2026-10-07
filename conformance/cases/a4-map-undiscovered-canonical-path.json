@@ -1,0 +1,35 @@
+{
+  "id": "a4-map-undiscovered-canonical-path",
+  "description": "canonical path of an account that does not exist is foreign",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/home/p/.claude-work"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "canonical": false,
+      "reason": "foreign",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

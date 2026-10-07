@@ -1,0 +1,47 @@
+{
+  "id": "a4-config-dir-relative-is-foreign",
+  "description": "a relative value never matches an account",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "rel/dir"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "pool": null,
+      "configDir": "rel/dir",
+      "canonical": false,
+      "reason": "foreign",
+      "source": "config-dir",
+      "matchedPath": null,
+      "exists": false,
+      "aliasOf": null,
+      "launchEnv": null,
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ],
+      "applied": true,
+      "candidates": [],
+      "globalConfig": null
+    }
+  }
+}

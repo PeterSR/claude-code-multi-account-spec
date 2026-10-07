@@ -1,0 +1,58 @@
+{
+  "id": "a3-spec-directories-not-array",
+  "description": "directories must be an array",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": \"~/dev\"}"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "/home/p/.claude-work",
+          "state": "ok",
+          "hasSpecFile": true,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": {
+            "code": "SPEC_FILE_INVALID",
+            "path": "/home/p/.claude-work/.multi-account.json"
+          },
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

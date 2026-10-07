@@ -1,0 +1,89 @@
+{
+  "id": "b4-handover-skips-links-and-special-files",
+  "description": "only regular files and directories are copied; the rest is listed in skipped",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/session-env/sess-1/env.sh": {
+      "type": "file",
+      "content": "x"
+    },
+    "/home/p/.claude-a/session-env/sess-1/key": {
+      "type": "symlink",
+      "target": "/home/p/.ssh/id_ed25519"
+    },
+    "/home/p/.ssh/id_ed25519": {
+      "type": "file",
+      "content": "SECRET"
+    },
+    "/home/p/.claude-a/session-env/sess-1/dirlink": {
+      "type": "symlink",
+      "target": "/home/p/.ssh"
+    },
+    "/home/p/.claude-a/session-env/sess-1/fifo": {
+      "type": "fifo"
+    },
+    "/home/p/.claude-a/session-env/sess-1/dev": {
+      "type": "device"
+    },
+    "/home/p/.claude-a/session-env/sess-1/sub/inner.txt": {
+      "type": "file",
+      "content": "i"
+    },
+    "/home/p/.claude-a/session-env/sess-1/sub/up": {
+      "type": "symlink",
+      "target": "../env.sh"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "session-env/sess-1/env.sh",
+        "session-env/sess-1/sub/inner.txt"
+      ],
+      "skipped": [
+        "session-env/sess-1/dev",
+        "session-env/sess-1/dirlink",
+        "session-env/sess-1/fifo",
+        "session-env/sess-1/key",
+        "session-env/sess-1/sub/up"
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/session-env/sess-1/key": null,
+    "/home/p/.claude-b/session-env/sess-1/dirlink": null,
+    "/home/p/.claude-b/session-env/sess-1/fifo": null,
+    "/home/p/.claude-b/session-env/sess-1/dev": null,
+    "/home/p/.claude-b/session-env/sess-1/sub/up": null,
+    "/home/p/.claude-b/session-env/sess-1/env.sh": {
+      "type": "file",
+      "content": "x"
+    }
+  }
+}

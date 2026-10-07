@@ -1,0 +1,53 @@
+{
+  "id": "b4-handover-exists-other-project-in-destination",
+  "description": "the same id under another project in the destination counts as existing",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-x/sess-1.jsonl": {
+      "type": "file",
+      "content": "a"
+    },
+    "/home/p/.claude-b/projects/-y/sess-1.jsonl": {
+      "type": "file",
+      "content": "b"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SESSION_EXISTS",
+      "path": null
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/projects/-x": null,
+    "/home/p/.claude-b/projects/-y/sess-1.jsonl": {
+      "content": "b"
+    }
+  }
+}

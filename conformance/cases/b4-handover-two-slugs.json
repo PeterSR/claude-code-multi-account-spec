@@ -1,0 +1,58 @@
+{
+  "id": "b4-handover-two-slugs",
+  "description": "the same id under two project slugs is copied under both",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-s1/sess-1.jsonl": {
+      "type": "file",
+      "content": "1"
+    },
+    "/home/p/.claude-a/projects/-s2/sess-1.jsonl": {
+      "type": "file",
+      "content": "2"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "projects/-s1/sess-1.jsonl",
+        "projects/-s2/sess-1.jsonl"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/projects/-s1/sess-1.jsonl": {
+      "content": "1"
+    },
+    "/home/p/.claude-b/projects/-s2/sess-1.jsonl": {
+      "content": "2"
+    }
+  }
+}

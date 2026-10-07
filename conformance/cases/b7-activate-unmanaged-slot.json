@@ -1,0 +1,46 @@
+{
+  "id": "b7-activate-unmanaged-slot",
+  "description": "activate needs a managed slot",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    },
+    "/home/p/.claude-personal/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_STATE",
+      "path": null
+    }
+  }
+}

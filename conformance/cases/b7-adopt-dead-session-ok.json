@@ -1,0 +1,52 @@
+{
+  "id": "b7-adopt-dead-session-ok",
+  "description": "a dead session does not block",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    },
+    "/home/p/.claude/sessions/55.json": {
+      "type": "file",
+      "content": "{\"pid\": 55, \"sessionId\": \"live-default\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "op": {
+    "name": "adopt",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "state": "managed",
+      "name": "work"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    }
+  }
+}

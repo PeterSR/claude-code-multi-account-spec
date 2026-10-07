@@ -1,0 +1,61 @@
+{
+  "id": "a4-claim-case-variant-darwin",
+  "description": "case-insensitive fs: a claim spelled in other case matches",
+  "spec": [
+    "A4 Step 2.2"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p/dev/personal/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/Dev/Personal\"]}"
+    },
+    "/Users/p/dev/personal/x": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/Users/p/.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "claim",
+      "matchedPath": "/Users/p/dev/personal",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/Users/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/Users/p/.claude-work/.claude.json"
+    }
+  }
+}

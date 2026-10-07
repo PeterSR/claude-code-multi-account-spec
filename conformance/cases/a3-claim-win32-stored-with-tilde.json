@@ -1,0 +1,47 @@
+{
+  "id": "a3-claim-win32-stored-with-tilde",
+  "description": "win32: under home is ~/ with forward slash",
+  "spec": [
+    "A3"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1}"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "work",
+      "dir": "C:\\Users\\p\\dev\\x"
+    }
+  },
+  "expect": {
+    "result": {
+      "directories": [
+        "~/dev/x"
+      ]
+    }
+  },
+  "expectFs": {
+    "C:\\Users\\p\\.claude-work\\.multi-account.json": {
+      "contentJson": {
+        "version": 1,
+        "directories": [
+          "~/dev/x"
+        ]
+      }
+    }
+  }
+}

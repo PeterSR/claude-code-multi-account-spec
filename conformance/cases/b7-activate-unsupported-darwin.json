@@ -1,0 +1,56 @@
+{
+  "id": "b7-activate-unsupported-darwin",
+  "description": "darwin refuses and rewrites nothing",
+  "spec": [
+    "B7"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude": {
+      "type": "symlink",
+      "target": "/Users/p/.claude-work"
+    },
+    "/Users/p/.claude.json": {
+      "type": "symlink",
+      "target": "/Users/p/.claude-work/.claude.json"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/Users/p/.claude-personal/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_UNSUPPORTED",
+      "path": null
+    }
+  },
+  "expectFs": {
+    "/Users/p/.claude": {
+      "type": "symlink",
+      "target": "/Users/p/.claude-work"
+    }
+  }
+}

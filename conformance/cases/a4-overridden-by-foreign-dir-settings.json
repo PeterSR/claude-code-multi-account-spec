@@ -1,0 +1,53 @@
+{
+  "id": "a4-overridden-by-foreign-dir-settings",
+  "description": "foreign dir: settings.json inside the given value",
+  "spec": [
+    "A4 Result"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/opt/x"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/opt/x/settings.json": {
+      "type": "file",
+      "content": "{\"apiKeyHelper\": \"x\"}"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "pool": null,
+      "configDir": "/opt/x",
+      "canonical": false,
+      "reason": "foreign",
+      "source": "config-dir",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": null,
+      "overriddenBy": [
+        "apiKeyHelper"
+      ],
+      "ignoredMarkers": [],
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ],
+      "applied": true,
+      "candidates": [],
+      "globalConfig": "/opt/x/.claude.json"
+    }
+  }
+}

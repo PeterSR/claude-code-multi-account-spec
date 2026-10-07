@@ -1,0 +1,64 @@
+{
+  "id": "a4-marker-darwin-case-insensitive-cwd",
+  "description": "matchedPath keeps the walked spelling",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p/Proj/src",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/proj/.claude-account": {
+      "type": "file",
+      "content": "work\n"
+    },
+    "/Users/p/proj/src": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/Users/p/.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "/Users/p/Proj/.claude-account",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/Users/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/Users/p/.claude-work/.claude.json"
+    }
+  }
+}

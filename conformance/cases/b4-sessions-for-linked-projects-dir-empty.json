@@ -1,0 +1,39 @@
+{
+  "id": "b4-sessions-for-linked-projects-dir-empty",
+  "description": "a linked projects directory is never a location",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/projects": {
+      "type": "symlink",
+      "target": "/data/pp"
+    },
+    "/data/pp/-home-p-proj/x-1.jsonl": {
+      "type": "file",
+      "content": "x"
+    }
+  },
+  "op": {
+    "name": "sessions_for",
+    "args": {
+      "name": "work",
+      "cwd": "/home/p/proj"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": []
+    }
+  }
+}

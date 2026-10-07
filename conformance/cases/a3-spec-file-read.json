@@ -1,0 +1,43 @@
+{
+  "id": "a3-spec-file-read",
+  "description": "the validated object verbatim, unknown keys included",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"label\": \"W\", \"pool\": \"p\", \"priority\": 2, \"directories\": [\"~/dev\"], \"extra\": {\"a\": 1}}"
+    }
+  },
+  "op": {
+    "name": "spec_file",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "version": 1,
+      "label": "W",
+      "pool": "p",
+      "priority": 2,
+      "directories": [
+        "~/dev"
+      ],
+      "extra": {
+        "a": 1
+      }
+    }
+  }
+}

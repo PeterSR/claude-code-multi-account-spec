@@ -1,0 +1,38 @@
+{
+  "id": "b1-env-named",
+  "description": "env delta for a named account",
+  "spec": [
+    "B1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+        "CLAUDE_MULTI_ACCOUNT": "work"
+      },
+      "unset": [
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": []
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "a4-claim-default-account",
+  "description": "default may claim directories",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/dev/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    },
+    "/home/p/dev/x": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "/home/p/.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "claim",
+      "matchedPath": "/home/p/dev",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "/home/p/.claude.json"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "b1-env-reports-more-auth-vars",
+  "description": "the newer login replacements are reported",
+  "spec": [
+    "B1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "t",
+    "CLAUDE_CODE_USE_BEDROCK": "1",
+    "ANTHROPIC_PROFILE": "p"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+        "CLAUDE_MULTI_ACCOUNT": "work"
+      },
+      "unset": [
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": [
+        "ANTHROPIC_AUTH_TOKEN",
+        "CLAUDE_CODE_USE_BEDROCK",
+        "ANTHROPIC_PROFILE"
+      ]
+    }
+  }
+}

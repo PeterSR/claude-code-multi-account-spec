@@ -1,0 +1,46 @@
+{
+  "id": "b3-win32",
+  "description": "win32 session registry",
+  "spec": [
+    "B3"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\sessions\\4.json": {
+      "type": "file",
+      "content": "{\"pid\": 4, \"sessionId\": \"s-4\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "processes": {
+    "4": {
+      "procStart": "T1",
+      "pidDomain": "host-1"
+    }
+  },
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "pid": 4,
+          "sessionId": "s-4",
+          "status": "live"
+        }
+      ]
+    }
+  }
+}

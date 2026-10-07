@@ -1,0 +1,57 @@
+{
+  "id": "b4-handover-destination-linked-unrelated-parent-ok",
+  "description": "a linked destination parent with nothing to write there does not block and is not reported",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-b/session-env": {
+      "type": "symlink",
+      "target": "/data/e"
+    },
+    "/data/e": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "tasks/sess-1/t.json"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/tasks/sess-1/t.json": {
+      "type": "file"
+    }
+  }
+}

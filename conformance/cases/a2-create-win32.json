@@ -1,0 +1,45 @@
+{
+  "id": "a2-create-win32",
+  "description": "create on win32",
+  "spec": [
+    "A2 Create"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "create",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "name": "work",
+      "configDir": "C:\\Users\\p\\.claude-work"
+    }
+  },
+  "expectFs": {
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir",
+      "mode": "0700"
+    },
+    "C:\\Users\\p\\.claude-work\\.multi-account.json": {
+      "type": "file",
+      "mode": "0600",
+      "contentJson": {
+        "version": 1,
+        "createdAt": "2026-10-06T12:00:00Z"
+      }
+    }
+  }
+}

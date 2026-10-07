@@ -1,0 +1,59 @@
+{
+  "id": "a4-spec-unreadable-account-dir-link-not-consulted",
+  "description": "an unreadable account has no readable spec and is skipped as unavailable",
+  "spec": [
+    "A2 Discovery"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-locked": {
+      "type": "symlink",
+      "target": "/mnt/x",
+      "unreadable": true
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "/home/p/.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "/home/p/.claude.json"
+    }
+  }
+}

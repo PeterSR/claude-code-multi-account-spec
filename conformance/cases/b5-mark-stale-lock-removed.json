@@ -1,0 +1,57 @@
+{
+  "id": "b5-mark-stale-lock-removed",
+  "description": "a lock older than 10 s is stale and is taken over",
+  "spec": [
+    "B5",
+    "A3 File safety rules"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json.lock": {
+      "type": "dir",
+      "mtime": "2026-10-06T11:59:00Z"
+    }
+  },
+  "op": {
+    "name": "mark_limited",
+    "args": {
+      "name": "work",
+      "entry": {
+        "window": "seven_day",
+        "model": "opus",
+        "until": "2026-10-09T14:00:00Z",
+        "reason": "rate_limit",
+        "updatedBy": "my-swapper"
+      }
+    }
+  },
+  "expect": {
+    "result": {
+      "limits": [
+        {
+          "window": "seven_day",
+          "model": "opus",
+          "until": "2026-10-09T14:00:00Z",
+          "reason": "rate_limit",
+          "updatedBy": "my-swapper",
+          "updatedAt": "2026-10-06T12:00:00Z"
+        }
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account-state.json.lock": null,
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file"
+    }
+  }
+}

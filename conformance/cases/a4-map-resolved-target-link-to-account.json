@@ -1,0 +1,42 @@
+{
+  "id": "a4-map-resolved-target-link-to-account",
+  "description": "row 5: link to an account dir",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/data/wlink": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/data/wlink"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "canonical": false,
+      "reason": "resolved-target",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

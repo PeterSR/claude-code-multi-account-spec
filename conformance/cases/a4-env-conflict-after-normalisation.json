@@ -1,0 +1,38 @@
+{
+  "id": "a4-env-conflict-after-normalisation",
+  "description": "conflict is about accounts, not strings",
+  "spec": [
+    "A4 Step 1.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/home/p/.claude-work/",
+    "CLAUDE_MULTI_ACCOUNT": "personal"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-personal": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ENV_CONFLICT",
+      "path": null
+    }
+  }
+}

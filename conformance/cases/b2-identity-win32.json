@@ -1,0 +1,40 @@
+{
+  "id": "b2-identity-win32",
+  "description": "win32 path",
+  "spec": [
+    "B2"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.claude.json": {
+      "type": "file",
+      "content": "{\"oauthAccount\": {\"emailAddress\": \"a@b.c\", \"organizationName\": \"Acme\", \"organizationUuid\": \"org-1\", \"organizationType\": \"claude_max\", \"billingType\": \"stripe_subscription\", \"userRateLimitTier\": \"default_claude_max_5x\", \"organizationRateLimitTier\": \"default_claude_max_5x\", \"accountUuid\": \"acc-1\"}}"
+    }
+  },
+  "op": {
+    "name": "identity",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "email": "a@b.c",
+      "orgName": "Acme",
+      "orgUuid": "org-1",
+      "organizationType": "claude_max",
+      "billingType": "stripe_subscription",
+      "userRateLimitTier": "default_claude_max_5x",
+      "organizationRateLimitTier": "default_claude_max_5x"
+    }
+  }
+}

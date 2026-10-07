@@ -1,0 +1,48 @@
+{
+  "id": "a3-spec-default-invalid",
+  "description": "default spec file is checked like any other",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.multi-account.json": {
+      "type": "file",
+      "content": "x"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": true,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": {
+            "code": "SPEC_FILE_INVALID",
+            "path": "/home/p/.claude/.multi-account.json"
+          },
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

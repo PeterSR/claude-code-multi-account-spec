@@ -1,0 +1,31 @@
+{
+  "id": "a2-name-invalid-leading-underscore",
+  "description": "invalid name '_x'",
+  "spec": [
+    "A2 Names"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "canonical_path",
+    "args": {
+      "name": "_x"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "INVALID_NAME",
+      "path": null
+    }
+  }
+}

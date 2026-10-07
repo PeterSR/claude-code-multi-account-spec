@@ -1,0 +1,35 @@
+{
+  "id": "a2-create-reserved-default",
+  "description": "create refuses reserved name default",
+  "spec": [
+    "A2 Names",
+    "A2 Create"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "create",
+    "args": {
+      "name": "default"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "RESERVED_NAME",
+      "path": null
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-default": null
+  }
+}

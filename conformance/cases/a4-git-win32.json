@@ -1,0 +1,71 @@
+{
+  "id": "a4-git-win32",
+  "description": "win32 repo marker ignored",
+  "spec": [
+    "A4 Markers in git working trees"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\src\\r\\pkg",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\src\\r\\.git": {
+      "type": "dir"
+    },
+    "C:\\src\\r\\.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "C:\\src\\r\\pkg": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "C:\\Users\\p\\.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [
+        "C:\\src\\r\\.claude-account"
+      ],
+      "warnings": [
+        "MARKER_IGNORED_IN_REPO"
+      ],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "C:\\Users\\p\\.claude.json"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "a4-claim-named-slot-account-binds-by-name",
+  "description": "a claim of the slot account launches it by name, not as default",
+  "spec": [
+    "A2 Relocation",
+    "A4 Step 2.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/dev/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    },
+    "/home/p/dev/x": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/home/p/.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "claim",
+      "matchedPath": "/home/p/dev",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/home/p/.claude-work/.claude.json"
+    }
+  }
+}

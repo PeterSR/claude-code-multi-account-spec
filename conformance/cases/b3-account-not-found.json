@@ -1,0 +1,31 @@
+{
+  "id": "b3-account-not-found",
+  "description": "unknown account",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "nope"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_NOT_FOUND",
+      "path": "/home/p/.claude-nope"
+    }
+  }
+}

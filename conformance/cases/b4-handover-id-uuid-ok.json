@@ -1,0 +1,50 @@
+{
+  "id": "b4-handover-id-uuid-ok",
+  "description": "a uuid id",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/tasks/11111111-1111-4111-8111-111111111111/t.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "tasks/11111111-1111-4111-8111-111111111111/t.json"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/tasks/11111111-1111-4111-8111-111111111111/t.json": {
+      "type": "file"
+    }
+  }
+}

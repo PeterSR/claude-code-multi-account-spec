@@ -1,0 +1,60 @@
+{
+  "id": "a4-marker-directory-only-gives-default",
+  "description": "only a directory marker: default",
+  "spec": [
+    "A4 Marker parsing"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "/home/p/.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "/home/p/.claude.json"
+    }
+  }
+}

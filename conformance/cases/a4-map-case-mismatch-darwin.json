@@ -1,0 +1,38 @@
+{
+  "id": "a4-map-case-mismatch-darwin",
+  "description": "row 3 on a case-insensitive fs",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/Users/p/.CLAUDE-WORK"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "canonical": false,
+      "reason": "case-mismatch",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

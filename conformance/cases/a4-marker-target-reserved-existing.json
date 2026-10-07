@@ -1,0 +1,64 @@
+{
+  "id": "a4-marker-target-reserved-existing",
+  "description": "marker names a reserved but existing account",
+  "spec": [
+    "A2 Names",
+    "A4 Step 2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "account\n"
+    },
+    "/home/p/.claude-account": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "account",
+      "pool": null,
+      "configDir": "/home/p/.claude-account",
+      "canonical": true,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "/home/p/proj/.claude-account",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-account",
+          "CLAUDE_MULTI_ACCOUNT": "account"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "RESERVED_NAME"
+      ],
+      "applied": true,
+      "candidates": [
+        "account"
+      ],
+      "globalConfig": "/home/p/.claude-account/.claude.json"
+    }
+  }
+}

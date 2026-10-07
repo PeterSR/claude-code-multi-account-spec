@@ -1,0 +1,44 @@
+{
+  "id": "b7-slot-managed-reserved-name",
+  "description": "a reserved name can be in the slot",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-profiles"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-profiles/.claude.json"
+    },
+    "/home/p/.claude-profiles": {
+      "type": "dir"
+    },
+    "/home/p/.claude-profiles/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "managed",
+      "name": "profiles"
+    }
+  }
+}

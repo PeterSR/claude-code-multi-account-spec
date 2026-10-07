@@ -1,0 +1,69 @@
+{
+  "id": "a4-ceiling-multiple-nearest-stops",
+  "description": "with several ceilings the nearest one stops the walk",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj/sub",
+  "env": {},
+  "options": {
+    "ceilingDirs": [
+      "/home/p",
+      "/home/p/proj/sub"
+    ]
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "/home/p/proj/sub": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "/home/p/.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "/home/p/.claude.json"
+    }
+  }
+}

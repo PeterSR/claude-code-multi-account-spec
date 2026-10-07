@@ -1,0 +1,31 @@
+{
+  "id": "b2-identity-invalid-name",
+  "description": "invalid name",
+  "spec": [
+    "B2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "identity",
+    "args": {
+      "name": "W"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "INVALID_NAME",
+      "path": null
+    }
+  }
+}

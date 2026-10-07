@@ -1,0 +1,38 @@
+{
+  "id": "a4-map-default-case-variant-ci-is-resolved-target",
+  "description": "darwin: other-case ~/.claude has no row 3 for default, row 5 matches",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/Users/p/.CLAUDE"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "canonical": false,
+      "reason": "resolved-target",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

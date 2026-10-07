@@ -1,0 +1,41 @@
+.agent-workspace/
+
+# Local credentials and agent configuration
+/.agents/
+/.aws/
+/.codex/
+.claude/settings.local.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build outputs and dependencies
+node_modules/
+dist/
+dist-test/
+build/
+.venv/
+venv/
+*.egg-info/
+*.tsbuildinfo
+*.tgz
+/clients/typescript/src/reserved-data.ts
+/clients/go/conformance-runner
+/clients/go/conformance-runner.exe
+
+# Caches and temporary files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+coverage/
+*.tmp
+*.swp
+*~
+.DS_Store

@@ -1,0 +1,44 @@
+{
+  "id": "b1-cred-darwin-hash-follows-config-home",
+  "description": "the hash input is the canonical path (NFC), so a different home hashes differently",
+  "spec": [
+    "B1",
+    "A1",
+    "A2 Canonical path"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/q",
+  "cwd": "/Users/q",
+  "env": {
+    "USER": "user"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/q": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "credential_locations",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "locations": [
+        {
+          "keychain": {
+            "service": "Claude Code-credentials-b48945ae",
+            "account": "user"
+          }
+        },
+        {
+          "file": "/Users/q/.claude-work/.credentials.json"
+        }
+      ]
+    }
+  }
+}

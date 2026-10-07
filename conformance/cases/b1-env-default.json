@@ -1,0 +1,39 @@
+{
+  "id": "b1-env-default",
+  "description": "default: unset CLAUDE_CONFIG_DIR, never set it",
+  "spec": [
+    "B1",
+    "A2 Canonical path"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "default"
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_MULTI_ACCOUNT": "default"
+      },
+      "unset": [
+        "CLAUDE_CONFIG_DIR",
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": []
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "a3-claim-tilde-user-invalid",
+  "description": "~user is invalid",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1}"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "work",
+      "dir": "~bob/x"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "INVALID_ENTRY",
+      "path": null
+    }
+  },
+  "expectFs": {}
+}

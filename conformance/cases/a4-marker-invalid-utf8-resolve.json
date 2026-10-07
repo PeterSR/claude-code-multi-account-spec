@@ -1,0 +1,36 @@
+{
+  "id": "a4-marker-invalid-utf8-resolve",
+  "description": "an invalid UTF-8 marker is MARKER_INVALID through resolve",
+  "spec": [
+    "A4 Marker parsing"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "contentBase64": "IyBjYWbpCndvcmsK"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "MARKER_INVALID",
+      "path": "/home/p/proj/.claude-account"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "b7-activate-unsupported-win32-credman",
+  "description": "win32 with Credential Manager refuses",
+  "spec": [
+    "B7"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {
+    "CLAUDE_CODE_FORCE_WINDOWS_CREDMAN": "1"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude": {
+      "type": "junction",
+      "target": "C:\\Users\\p\\.claude-work"
+    },
+    "C:\\Users\\p\\.claude.json": {
+      "type": "symlink",
+      "target": "C:\\Users\\p\\.claude-work\\.claude.json"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "C:\\Users\\p\\.claude-personal\\.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_UNSUPPORTED",
+      "path": null
+    }
+  }
+}

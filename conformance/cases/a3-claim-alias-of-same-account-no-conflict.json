@@ -1,0 +1,65 @@
+{
+  "id": "a3-claim-alias-of-same-account-no-conflict",
+  "description": "default and the slot account are one account: no conflict between them",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/srv/a\"]}"
+    },
+    "/srv/a": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "default",
+      "dir": "/srv/a"
+    }
+  },
+  "expect": {
+    "result": {
+      "directories": [
+        "/srv/a"
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account.json": {
+      "contentJson": {
+        "version": 1,
+        "directories": [
+          "/srv/a"
+        ]
+      }
+    }
+  }
+}

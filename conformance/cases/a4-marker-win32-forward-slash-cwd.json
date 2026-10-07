@@ -1,0 +1,64 @@
+{
+  "id": "a4-marker-win32-forward-slash-cwd",
+  "description": "win32 cwd with forward slashes",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:/Users/p/proj/src/",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\proj\\.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "C:\\Users\\p\\proj\\src": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "C:\\Users\\p\\.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "C:\\Users\\p\\proj\\.claude-account",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "C:\\Users\\p\\.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "C:\\Users\\p\\.claude-work\\.claude.json"
+    }
+  }
+}

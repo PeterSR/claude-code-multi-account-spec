@@ -1,0 +1,47 @@
+{
+  "id": "b2-identity-custom-oauth-file",
+  "description": "with a custom oauth URL the suffixed file is read",
+  "spec": [
+    "B2",
+    "A1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CODE_CUSTOM_OAUTH_URL": "https://x.test"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{\"oauthAccount\": {\"emailAddress\": \"plain\"}}"
+    },
+    "/home/p/.claude-work/.claude-custom-oauth.json": {
+      "type": "file",
+      "content": "{\"oauthAccount\": {\"emailAddress\": \"a@b.c\", \"organizationName\": \"Acme\", \"organizationUuid\": \"org-1\", \"organizationType\": \"claude_max\", \"billingType\": \"stripe_subscription\", \"userRateLimitTier\": \"default_claude_max_5x\", \"organizationRateLimitTier\": \"default_claude_max_5x\", \"accountUuid\": \"acc-1\"}}"
+    }
+  },
+  "op": {
+    "name": "identity",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "email": "a@b.c",
+      "orgName": "Acme",
+      "orgUuid": "org-1",
+      "organizationType": "claude_max",
+      "billingType": "stripe_subscription",
+      "userRateLimitTier": "default_claude_max_5x",
+      "organizationRateLimitTier": "default_claude_max_5x"
+    }
+  }
+}

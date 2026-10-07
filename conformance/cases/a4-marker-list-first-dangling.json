@@ -1,0 +1,40 @@
+{
+  "id": "a4-marker-list-first-dangling",
+  "description": "a dangling first entry is ACCOUNT_UNAVAILABLE",
+  "spec": [
+    "A4 Step 2.1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "work, personal\n"
+    },
+    "/home/p/.claude-personal": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "symlink",
+      "target": "/mnt/gone"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_UNAVAILABLE",
+      "path": "/home/p/.claude-work"
+    }
+  }
+}

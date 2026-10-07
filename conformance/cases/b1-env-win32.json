@@ -1,0 +1,38 @@
+{
+  "id": "b1-env-win32",
+  "description": "win32 canonical path in the delta",
+  "spec": [
+    "B1"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_CONFIG_DIR": "C:\\Users\\p\\.claude-work",
+        "CLAUDE_MULTI_ACCOUNT": "work"
+      },
+      "unset": [
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": []
+    }
+  }
+}

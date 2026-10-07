@@ -1,0 +1,47 @@
+{
+  "id": "a4-marker-pool-needs-no-accounts",
+  "description": "pool binding does not look at accounts",
+  "spec": [
+    "A4 Pools"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-account": {
+      "type": "file",
+      "content": "@nothing-here"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "pool": "nothing-here",
+      "configDir": null,
+      "canonical": false,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "/home/p/.claude-account",
+      "exists": false,
+      "aliasOf": null,
+      "launchEnv": null,
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [],
+      "globalConfig": null
+    }
+  }
+}

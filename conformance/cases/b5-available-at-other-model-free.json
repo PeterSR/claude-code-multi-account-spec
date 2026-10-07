@@ -1,0 +1,36 @@
+{
+  "id": "b5-available-at-other-model-free",
+  "description": "an entry for another model does not apply",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": [{\"window\": \"seven_day\", \"model\": \"opus\", \"until\": \"2026-10-09T14:00:00Z\", \"reason\": \"rate_limit\", \"updatedBy\": \"my-swapper\", \"updatedAt\": \"2026-10-06T12:00:00Z\"}]}",
+      "mode": "0600"
+    }
+  },
+  "op": {
+    "name": "available_at",
+    "args": {
+      "name": "work",
+      "model": "sonnet"
+    }
+  },
+  "expect": {
+    "result": {
+      "availableAt": null
+    }
+  }
+}

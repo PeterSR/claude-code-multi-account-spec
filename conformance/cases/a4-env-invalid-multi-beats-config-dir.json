@@ -1,0 +1,35 @@
+{
+  "id": "a4-env-invalid-multi-beats-config-dir",
+  "description": "an invalid CLAUDE_MULTI_ACCOUNT is INVALID_NAME even with a CONFIG_DIR",
+  "spec": [
+    "A4 Step 1.3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+    "CLAUDE_MULTI_ACCOUNT": "Bad Name"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "INVALID_NAME",
+      "path": null
+    }
+  }
+}

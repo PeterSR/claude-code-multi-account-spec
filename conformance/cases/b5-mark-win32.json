@@ -1,0 +1,68 @@
+{
+  "id": "b5-mark-win32",
+  "description": "win32 paths",
+  "spec": [
+    "B5"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "mark_limited",
+    "args": {
+      "name": "work",
+      "entry": {
+        "window": "seven_day",
+        "model": "opus",
+        "until": "2026-10-09T14:00:00Z",
+        "reason": "rate_limit",
+        "updatedBy": "my-swapper"
+      }
+    }
+  },
+  "expect": {
+    "result": {
+      "limits": [
+        {
+          "window": "seven_day",
+          "model": "opus",
+          "until": "2026-10-09T14:00:00Z",
+          "reason": "rate_limit",
+          "updatedBy": "my-swapper",
+          "updatedAt": "2026-10-06T12:00:00Z"
+        }
+      ]
+    }
+  },
+  "expectFs": {
+    "C:\\Users\\p\\.claude-work\\.multi-account-state.json": {
+      "type": "file",
+      "mode": "0600",
+      "contentJson": {
+        "version": 1,
+        "limits": [
+          {
+            "window": "seven_day",
+            "model": "opus",
+            "until": "2026-10-09T14:00:00Z",
+            "reason": "rate_limit",
+            "updatedBy": "my-swapper",
+            "updatedAt": "2026-10-06T12:00:00Z"
+          }
+        ]
+      }
+    }
+  }
+}

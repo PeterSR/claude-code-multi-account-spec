@@ -1,0 +1,40 @@
+{
+  "id": "b1-cred-win32-credman-flag-false",
+  "description": "flag present but false",
+  "spec": [
+    "B1",
+    "A1",
+    "A2 Canonical path"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.claude.json": {
+      "type": "file",
+      "content": "{\"cachedGrowthBookFeatures\": {\"tengu_windows_credman\": false}}"
+    }
+  },
+  "op": {
+    "name": "credential_locations",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "locations": [
+        {
+          "file": "C:\\Users\\p\\.claude-work\\.credentials.json"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "b1-env-clear-auth-overrides",
+  "description": "clearAuthOverrides unsets both and stops reporting them",
+  "spec": [
+    "B1"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CODE_OAUTH_TOKEN": "t",
+    "ANTHROPIC_API_KEY": "k"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "env",
+    "args": {
+      "name": "work",
+      "clearAuthOverrides": true
+    }
+  },
+  "expect": {
+    "result": {
+      "set": {
+        "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+        "CLAUDE_MULTI_ACCOUNT": "work"
+      },
+      "unset": [
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_AUTH_TOKEN",
+        "ANTHROPIC_PROFILE",
+        "CLAUDE_CODE_OAUTH_TOKEN",
+        "CLAUDE_CODE_USE_BEDROCK",
+        "CLAUDE_CODE_USE_FOUNDRY",
+        "CLAUDE_CODE_USE_VERTEX",
+        "CLAUDE_MULTI_ACCOUNT_SOURCE",
+        "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+      ],
+      "overriddenBy": []
+    }
+  }
+}

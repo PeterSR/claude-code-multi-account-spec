@@ -1,0 +1,38 @@
+{
+  "id": "b6-pick-priority-beats-name",
+  "description": "a higher priority beats an earlier name",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\", \"priority\": 0}"
+    },
+    "/home/p/.claude-z/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\", \"priority\": 3}"
+    }
+  },
+  "op": {
+    "name": "pick",
+    "args": {
+      "pool": "p"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "z"
+    }
+  }
+}

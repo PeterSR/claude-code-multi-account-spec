@@ -1,0 +1,41 @@
+{
+  "id": "b4-sessions-for-default",
+  "description": "default reads ~/.claude/projects",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude/projects/-home-p-proj/d-1.jsonl": {
+      "type": "file",
+      "content": "x",
+      "mtime": "2026-10-01T10:00:00Z"
+    }
+  },
+  "op": {
+    "name": "sessions_for",
+    "args": {
+      "name": "default",
+      "cwd": "/home/p/proj"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "id": "d-1",
+          "mtime": "2026-10-01T10:00:00.000Z"
+        }
+      ]
+    }
+  }
+}

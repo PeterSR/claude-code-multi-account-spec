@@ -1,0 +1,46 @@
+{
+  "id": "b6-pick-highest-priority",
+  "description": "highest priority wins, ties by name",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"team\", \"priority\": 1}"
+    },
+    "/home/p/.claude-b/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"team\", \"priority\": 5}"
+    },
+    "/home/p/.claude-c/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"team\", \"priority\": 5}"
+    },
+    "/home/p/.claude-d/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"other\", \"priority\": 9}"
+    }
+  },
+  "op": {
+    "name": "pick",
+    "args": {
+      "pool": "team"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "b"
+    }
+  }
+}

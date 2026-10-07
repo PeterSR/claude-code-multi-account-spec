@@ -1,0 +1,63 @@
+{
+  "id": "b4-handover-overwrite-other-project-in-destination",
+  "description": "overwrite removes the id under every destination project, then copies",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-x/sess-1.jsonl": {
+      "type": "file",
+      "content": "a"
+    },
+    "/home/p/.claude-b/projects/-y/sess-1.jsonl": {
+      "type": "file",
+      "content": "b"
+    },
+    "/home/p/.claude-b/projects/-y/keep.jsonl": {
+      "type": "file",
+      "content": "k"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b",
+      "overwrite": true
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "projects/-x/sess-1.jsonl"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/projects/-x/sess-1.jsonl": {
+      "content": "a"
+    },
+    "/home/p/.claude-b/projects/-y/sess-1.jsonl": null,
+    "/home/p/.claude-b/projects/-y/keep.jsonl": {
+      "content": "k"
+    }
+  }
+}

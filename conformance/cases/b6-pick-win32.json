@@ -1,0 +1,38 @@
+{
+  "id": "b6-pick-win32",
+  "description": "win32 pool",
+  "spec": [
+    "B6"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-a\\.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\"}"
+    },
+    "C:\\Users\\p\\.claude-b\\.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\", \"priority\": 2}"
+    }
+  },
+  "op": {
+    "name": "pick",
+    "args": {
+      "pool": "p"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "b"
+    }
+  }
+}

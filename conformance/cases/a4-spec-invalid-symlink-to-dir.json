@@ -1,0 +1,36 @@
+{
+  "id": "a4-spec-invalid-symlink-to-dir",
+  "description": "a spec path that is a link to a directory is invalid",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-bad/.multi-account.json": {
+      "type": "symlink",
+      "target": "/data/d"
+    },
+    "/data/d": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "SPEC_FILE_INVALID",
+      "path": "/home/p/.claude-bad/.multi-account.json"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "b5-clear-version-2-refused",
+  "description": "clear on a version 2 file is refused",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 2, \"limits\": []}"
+    }
+  },
+  "op": {
+    "name": "clear_limited",
+    "args": {
+      "name": "work",
+      "window": "seven_day",
+      "model": "opus"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "STATE_FILE_INVALID",
+      "path": "/home/p/.claude-work/.multi-account-state.json"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "contentJson": {
+        "version": 2,
+        "limits": []
+      }
+    }
+  }
+}

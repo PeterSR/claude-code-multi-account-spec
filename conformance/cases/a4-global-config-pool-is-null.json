@@ -1,0 +1,47 @@
+{
+  "id": "a4-global-config-pool-is-null",
+  "description": "a pool binding has no global config",
+  "spec": [
+    "A4 Result"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "@team\n"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "pool": "team",
+      "configDir": null,
+      "canonical": false,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "/home/p/proj/.claude-account",
+      "exists": false,
+      "aliasOf": null,
+      "launchEnv": null,
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [],
+      "globalConfig": null
+    }
+  }
+}

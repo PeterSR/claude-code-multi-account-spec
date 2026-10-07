@@ -1,0 +1,68 @@
+{
+  "id": "a4-ceiling-win32",
+  "description": "win32 ceiling",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p\\proj\\sub",
+  "env": {},
+  "options": {
+    "ceilingDirs": [
+      "c:/users/p/proj"
+    ]
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "C:\\Users\\p\\proj\\sub": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "default",
+      "pool": null,
+      "configDir": "C:\\Users\\p\\.claude",
+      "canonical": true,
+      "reason": null,
+      "source": "default",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_MULTI_ACCOUNT": "default"
+        },
+        "unset": [
+          "CLAUDE_CONFIG_DIR",
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "default"
+      ],
+      "globalConfig": "C:\\Users\\p\\.claude.json"
+    }
+  }
+}

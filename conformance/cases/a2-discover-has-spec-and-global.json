@@ -1,0 +1,86 @@
+{
+  "id": "a2-discover-has-spec-and-global",
+  "description": "hasSpecFile and hasGlobalConfig facts",
+  "spec": [
+    "A2 Discovery"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-bare": {
+      "type": "dir"
+    },
+    "/home/p/.claude-full/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1}"
+    },
+    "/home/p/.claude-full/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-gc/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "bare",
+          "configDir": "/home/p/.claude-bare",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "full",
+          "configDir": "/home/p/.claude-full",
+          "state": "ok",
+          "hasSpecFile": true,
+          "hasGlobalConfig": true,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "gc",
+          "configDir": "/home/p/.claude-gc",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": true,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

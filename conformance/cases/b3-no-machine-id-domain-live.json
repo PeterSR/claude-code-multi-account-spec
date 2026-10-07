@@ -1,0 +1,47 @@
+{
+  "id": "b3-no-machine-id-domain-live",
+  "description": "a caller without a machine id has the domain linux::pid:[...] and matches Claude Code records",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/sessions/4242.json": {
+      "type": "file",
+      "content": "{\"pid\": 4242, \"sessionId\": \"11111111-1111-4111-8111-111111111111\", \"cwd\": \"/home/p/proj\", \"startedAt\": 1759752000000, \"version\": \"2.1.292\", \"kind\": \"interactive\", \"entrypoint\": \"cli\", \"status\": \"idle\", \"updatedAt\": 1759752100000, \"pidDomain\": \"linux::pid:[1234567890]\", \"procStart\": \"12345678\"}"
+    }
+  },
+  "processes": {
+    "4242": {
+      "procStart": "12345678",
+      "pidDomain": "linux::pid:[1234567890]"
+    }
+  },
+  "callerPidDomain": "linux::pid:[1234567890]",
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "pid": 4242,
+          "sessionId": "11111111-1111-4111-8111-111111111111",
+          "status": "live"
+        }
+      ]
+    }
+  }
+}

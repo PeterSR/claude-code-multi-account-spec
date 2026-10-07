@@ -1,0 +1,41 @@
+{
+  "id": "b5-mark-state-is-directory-refused",
+  "description": "a directory in place of the file is refused",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "mark_limited",
+    "args": {
+      "name": "work",
+      "entry": {
+        "window": "seven_day",
+        "model": "opus",
+        "until": "2026-10-09T14:00:00Z",
+        "reason": "rate_limit",
+        "updatedBy": "my-swapper"
+      }
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "STATE_FILE_INVALID",
+      "path": "/home/p/.claude-work/.multi-account-state.json"
+    }
+  }
+}

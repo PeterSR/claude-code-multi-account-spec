@@ -1,0 +1,53 @@
+{
+  "id": "a3-unclaim-all-spellings",
+  "description": "every matching entry is removed",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\", \"/home/p/dev\", \"/srv/z\"]}"
+    },
+    "/home/p/dev": {
+      "type": "dir"
+    },
+    "/srv/z": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "unclaim",
+    "args": {
+      "name": "work",
+      "dir": "/home/p/dev"
+    }
+  },
+  "expect": {
+    "result": {
+      "directories": [
+        "/srv/z"
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account.json": {
+      "contentJson": {
+        "version": 1,
+        "directories": [
+          "/srv/z"
+        ]
+      }
+    }
+  }
+}

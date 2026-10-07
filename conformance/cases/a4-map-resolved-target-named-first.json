@@ -1,0 +1,46 @@
+{
+  "id": "a4-map-resolved-target-named-first",
+  "description": "row 5: named accounts are tried before default",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/data/shared": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/data/shared"
+    },
+    "/home/p/.claude-work": {
+      "type": "symlink",
+      "target": "/data/shared"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/data/shared"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "canonical": false,
+      "reason": "resolved-target",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

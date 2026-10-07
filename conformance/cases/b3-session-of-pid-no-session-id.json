@@ -1,0 +1,35 @@
+{
+  "id": "b3-session-of-pid-no-session-id",
+  "description": "a record without sessionId: null",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/sessions/4242.json": {
+      "type": "file",
+      "content": "{\"pid\": 4242}"
+    }
+  },
+  "op": {
+    "name": "session_of_pid",
+    "args": {
+      "name": "work",
+      "pid": 4242
+    }
+  },
+  "expect": {
+    "result": {
+      "sessionId": null
+    }
+  }
+}

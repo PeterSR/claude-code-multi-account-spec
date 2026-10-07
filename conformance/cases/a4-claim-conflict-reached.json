@@ -1,0 +1,40 @@
+{
+  "id": "a4-claim-conflict-reached",
+  "description": "two accounts claim the same directory and the walk reaches it",
+  "spec": [
+    "A4 Step 2.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/dev/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"~/dev\"]}"
+    },
+    "/home/p/.claude-personal/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/home/p/dev\"]}"
+    },
+    "/home/p/dev/x": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "CLAIM_CONFLICT",
+      "path": "/home/p/dev"
+    }
+  }
+}

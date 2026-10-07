@@ -1,0 +1,41 @@
+{
+  "id": "a3-claim-case-insensitive-conflict-darwin",
+  "description": "on a case-insensitive filesystem a differently cased missing path conflicts",
+  "spec": [
+    "A3"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1}"
+    },
+    "/Users/p/.claude-personal/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/Users/p/proj\"]}"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "work",
+      "dir": "/Users/p/Proj"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "CLAIM_CONFLICT",
+      "path": "/Users/p/Proj"
+    }
+  },
+  "expectFs": {}
+}

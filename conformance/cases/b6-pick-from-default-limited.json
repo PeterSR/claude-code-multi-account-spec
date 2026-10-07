@@ -1,0 +1,47 @@
+{
+  "id": "b6-pick-from-default-limited",
+  "description": "default limited via ~/.claude state",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-c": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": [{\"window\": \"w\", \"model\": null, \"until\": \"2026-10-09T14:00:00Z\"}]}",
+      "mode": "0600"
+    }
+  },
+  "op": {
+    "name": "pick_from",
+    "args": {
+      "candidates": [
+        "default",
+        "a"
+      ]
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "a"
+    }
+  }
+}

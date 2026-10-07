@@ -1,0 +1,48 @@
+{
+  "id": "b4-handover-win32",
+  "description": "win32 copy",
+  "spec": [
+    "B4"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-a\\projects\\-s1\\sess-1.jsonl": {
+      "type": "file",
+      "content": "x"
+    },
+    "C:\\Users\\p\\.claude-b": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "projects/-s1/sess-1.jsonl"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "C:\\Users\\p\\.claude-b\\projects\\-s1\\sess-1.jsonl": {
+      "type": "file",
+      "content": "x"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "b1-cred-darwin-empty-user-uses-option",
+  "description": "empty USER counts as unset",
+  "spec": [
+    "B1",
+    "A1",
+    "A2 Canonical path"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {
+    "USER": ""
+  },
+  "options": {
+    "userName": "osuser"
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "credential_locations",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "locations": [
+        {
+          "keychain": {
+            "service": "Claude Code-credentials-959cec09",
+            "account": "osuser"
+          }
+        },
+        {
+          "file": "/Users/p/.claude-work/.credentials.json"
+        }
+      ]
+    }
+  }
+}

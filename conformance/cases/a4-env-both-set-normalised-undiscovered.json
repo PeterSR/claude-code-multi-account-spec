@@ -1,0 +1,32 @@
+{
+  "id": "a4-env-both-set-normalised-undiscovered",
+  "description": "the agreement test normalises the config dir first",
+  "spec": [
+    "A4 Step 1.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/home/p/.claude-work/",
+    "CLAUDE_MULTI_ACCOUNT": "work"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_NOT_FOUND",
+      "path": "/home/p/.claude-work"
+    }
+  }
+}

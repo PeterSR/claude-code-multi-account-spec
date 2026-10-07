@@ -1,0 +1,38 @@
+{
+  "name": "claude-code-multi-account",
+  "version": "0.2.2",
+  "description": "Storage and addressing for several Claude Code accounts on one machine (TypeScript library).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/conformance-runner.*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "embed": "node scripts/embed-reserved.mjs",
+    "build": "npm run embed && tsc -p tsconfig.json",
+    "test": "npm run embed && tsc -p tsconfig.test.json && node --test dist-test/test/*.test.js",
+    "conformance": "npm run build && ../../conformance/run.sh --runner ts",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterSR/claude-code-multi-account-spec.git",
+    "directory": "clients/typescript"
+  }
+}

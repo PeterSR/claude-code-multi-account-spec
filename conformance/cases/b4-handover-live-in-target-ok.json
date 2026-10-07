@@ -1,0 +1,117 @@
+{
+  "id": "b4-handover-live-in-target-ok",
+  "description": "only the source account is checked",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-home-p-x/sess-1.jsonl": {
+      "type": "file",
+      "content": "line1\nline2\n",
+      "mode": "0600"
+    },
+    "/home/p/.claude-a/projects/-home-p-x/sess-1/subagents/a.jsonl": {
+      "type": "file",
+      "content": "sub",
+      "mode": "0600"
+    },
+    "/home/p/.claude-a/projects/-home-p-x/sess-1/tool-results/r.txt": {
+      "type": "file",
+      "content": "res",
+      "mode": "0644"
+    },
+    "/home/p/.claude-a/file-history/sess-1/v1": {
+      "type": "file",
+      "content": "hist",
+      "mode": "0600"
+    },
+    "/home/p/.claude-a/session-env/sess-1/env.sh": {
+      "type": "file",
+      "content": "export A=1",
+      "mode": "0600"
+    },
+    "/home/p/.claude-a/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "{}",
+      "mode": "0600"
+    },
+    "/home/p/.claude-a/projects/-home-p-x/other.jsonl": {
+      "type": "file",
+      "content": "not this one"
+    },
+    "/home/p/.claude-a/projects/-home-p-y": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/tasks/other-id/t.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-b/sessions/200.json": {
+      "type": "file",
+      "content": "{\"pid\": 200, \"sessionId\": \"sess-1\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "processes": {
+    "200": {
+      "procStart": "T1",
+      "pidDomain": "host-1"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "file-history/sess-1/v1",
+        "projects/-home-p-x/sess-1.jsonl",
+        "projects/-home-p-x/sess-1/subagents/a.jsonl",
+        "projects/-home-p-x/sess-1/tool-results/r.txt",
+        "session-env/sess-1/env.sh",
+        "tasks/sess-1/t.json"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/file-history/sess-1/v1": {
+      "type": "file"
+    },
+    "/home/p/.claude-b/projects/-home-p-x/sess-1.jsonl": {
+      "type": "file"
+    },
+    "/home/p/.claude-b/projects/-home-p-x/sess-1/subagents/a.jsonl": {
+      "type": "file"
+    },
+    "/home/p/.claude-b/projects/-home-p-x/sess-1/tool-results/r.txt": {
+      "type": "file"
+    },
+    "/home/p/.claude-b/session-env/sess-1/env.sh": {
+      "type": "file"
+    },
+    "/home/p/.claude-b/tasks/sess-1/t.json": {
+      "type": "file"
+    }
+  }
+}

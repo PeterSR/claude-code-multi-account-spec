@@ -1,0 +1,38 @@
+{
+  "id": "a4-map-foreign",
+  "description": "row 6",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/opt/elsewhere": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/opt/elsewhere"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "canonical": false,
+      "reason": "foreign",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

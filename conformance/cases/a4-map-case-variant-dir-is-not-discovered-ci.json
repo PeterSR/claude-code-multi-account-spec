@@ -1,0 +1,38 @@
+{
+  "id": "a4-map-case-variant-dir-is-not-discovered-ci",
+  "description": "darwin: .claude-Work on disk is not an account, so no row matches by name",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-Work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "/Users/p/.claude-work"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": null,
+      "canonical": false,
+      "reason": "foreign",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

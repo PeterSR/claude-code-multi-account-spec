@@ -1,0 +1,41 @@
+{
+  "id": "b3-dead-no-process",
+  "description": "pid not in the table",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/sessions/101.json": {
+      "type": "file",
+      "content": "{\"pid\": 101, \"sessionId\": \"s-101\", \"procStart\": \"T1\", \"pidDomain\": \"host-1\"}"
+    }
+  },
+  "processes": {},
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "pid": 101,
+          "sessionId": "s-101",
+          "status": "dead"
+        }
+      ]
+    }
+  }
+}

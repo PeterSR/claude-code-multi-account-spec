@@ -1,0 +1,69 @@
+{
+  "id": "a4-claim-by-inode",
+  "description": "two paths with the same device and inode are the same directory",
+  "spec": [
+    "A4 Step 2.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/mnt/bind/proj/x",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/home/p/proj\"]}"
+    },
+    "/home/p/proj": {
+      "type": "dir",
+      "inode": 7
+    },
+    "/mnt/bind/proj": {
+      "type": "dir",
+      "inode": 7
+    },
+    "/mnt/bind/proj/x": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/home/p/.claude-work",
+      "canonical": true,
+      "reason": null,
+      "source": "claim",
+      "matchedPath": "/mnt/bind/proj",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/home/p/.claude-work/.claude.json"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "b7-adopt-global-json-is-symlink-refused",
+  "description": "~/.claude.json that is a link would make a chain",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/data/dot.json"
+    },
+    "/data/dot.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "adopt",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "SLOT_TARGET_INVALID",
+      "path": "/home/p/.claude.json"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": null
+  }
+}

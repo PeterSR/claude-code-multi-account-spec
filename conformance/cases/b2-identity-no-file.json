@@ -1,0 +1,31 @@
+{
+  "id": "b2-identity-no-file",
+  "description": "no global config: null",
+  "spec": [
+    "B2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "identity",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": null
+  }
+}

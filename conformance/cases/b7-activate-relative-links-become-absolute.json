@@ -1,0 +1,56 @@
+{
+  "id": "b7-activate-relative-links-become-absolute",
+  "description": "new links use absolute targets",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": ".claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": ".claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-personal/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "activate",
+    "args": {
+      "name": "personal"
+    }
+  },
+  "expect": {
+    "result": {
+      "state": "managed",
+      "name": "personal"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-personal"
+    }
+  }
+}

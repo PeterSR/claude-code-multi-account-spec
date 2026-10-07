@@ -1,0 +1,65 @@
+{
+  "id": "b4-handover-overwrite-replaces-destination-link",
+  "description": "overwrite removes a link at the destination and does not touch its target",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "new"
+    },
+    "/home/p/.claude-b/tasks/sess-1": {
+      "type": "symlink",
+      "target": "/data/x"
+    },
+    "/data/x/keep": {
+      "type": "file",
+      "content": "keep"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b",
+      "overwrite": true
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "tasks/sess-1/t.json"
+      ],
+      "skipped": []
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/tasks/sess-1": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b/tasks/sess-1/t.json": {
+      "content": "new"
+    },
+    "/data/x/keep": {
+      "content": "keep"
+    }
+  }
+}

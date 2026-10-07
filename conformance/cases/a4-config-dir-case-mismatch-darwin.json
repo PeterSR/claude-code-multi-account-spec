@@ -1,0 +1,61 @@
+{
+  "id": "a4-config-dir-case-mismatch-darwin",
+  "description": "darwin case-insensitive fs: case-mismatch",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/Users/p/.Claude-Work"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "pool": null,
+      "configDir": "/Users/p/.Claude-Work",
+      "canonical": false,
+      "reason": "case-mismatch",
+      "source": "config-dir",
+      "matchedPath": null,
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/Users/p/.claude-work",
+          "CLAUDE_MULTI_ACCOUNT": "work"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ],
+      "applied": true,
+      "candidates": [
+        "work"
+      ],
+      "globalConfig": "/Users/p/.Claude-Work/.claude.json"
+    }
+  }
+}

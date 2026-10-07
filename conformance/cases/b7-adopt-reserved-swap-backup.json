@@ -1,0 +1,47 @@
+{
+  "id": "b7-adopt-reserved-swap-backup",
+  "description": "reserved name swap-backup",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "dir"
+    },
+    "/home/p/.claude/.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "/home/p/.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    }
+  },
+  "op": {
+    "name": "adopt",
+    "args": {
+      "name": "swap-backup"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "RESERVED_NAME",
+      "path": null
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude": {
+      "type": "dir"
+    }
+  }
+}

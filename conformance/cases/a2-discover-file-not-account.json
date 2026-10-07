@@ -1,0 +1,47 @@
+{
+  "id": "a2-discover-file-not-account",
+  "description": "regular file named like an account gives NOT_A_DIRECTORY",
+  "spec": [
+    "A2 Discovery"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-notes": {
+      "type": "file",
+      "content": "hi"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": [
+        "NOT_A_DIRECTORY"
+      ]
+    }
+  }
+}

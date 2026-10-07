@@ -1,0 +1,40 @@
+{
+  "id": "b7-slot-broken-json-link-missing",
+  "description": "~/.claude linked, no ~/.claude.json",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "broken",
+      "name": null
+    }
+  }
+}

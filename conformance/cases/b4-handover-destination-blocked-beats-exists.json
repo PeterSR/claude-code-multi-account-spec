@@ -1,0 +1,55 @@
+{
+  "id": "b4-handover-destination-blocked-beats-exists",
+  "description": "DESTINATION_BLOCKED is reported before SESSION_EXISTS",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-x/sess-1.jsonl": {
+      "type": "file",
+      "content": "a"
+    },
+    "/home/p/.claude-a/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-b/projects/-x": {
+      "type": "symlink",
+      "target": "/data/x"
+    },
+    "/home/p/.claude-b/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "old"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "DESTINATION_BLOCKED",
+      "path": "/home/p/.claude-b/projects/-x"
+    }
+  }
+}

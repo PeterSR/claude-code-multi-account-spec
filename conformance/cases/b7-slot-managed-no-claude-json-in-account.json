@@ -1,0 +1,40 @@
+{
+  "id": "b7-slot-managed-no-claude-json-in-account",
+  "description": "both links in place and the account has no .claude.json yet",
+  "spec": [
+    "B7"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "managed",
+      "name": "work"
+    }
+  }
+}

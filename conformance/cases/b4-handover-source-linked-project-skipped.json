@@ -1,0 +1,61 @@
+{
+  "id": "b4-handover-source-linked-project-skipped",
+  "description": "a linked source project folder is not read and is reported in skipped",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-x": {
+      "type": "symlink",
+      "target": "/data/x"
+    },
+    "/data/x/sess-1.jsonl": {
+      "type": "file",
+      "content": "secret"
+    },
+    "/home/p/.claude-a/tasks/sess-1/t.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "result": {
+      "copied": [
+        "tasks/sess-1/t.json"
+      ],
+      "skipped": [
+        "projects/-x"
+      ]
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-b/projects": null,
+    "/home/p/.claude-b/tasks/sess-1/t.json": {
+      "type": "file"
+    }
+  }
+}

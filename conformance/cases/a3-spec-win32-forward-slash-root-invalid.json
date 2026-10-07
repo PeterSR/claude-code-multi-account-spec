@@ -1,0 +1,58 @@
+{
+  "id": "a3-spec-win32-forward-slash-root-invalid",
+  "description": "win32: /x has no drive so it is not absolute",
+  "spec": [
+    "A3"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work\\.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/x\"]}"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "C:\\Users\\p\\.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "C:\\Users\\p\\.claude-work",
+          "state": "ok",
+          "hasSpecFile": true,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": {
+            "code": "SPEC_FILE_INVALID",
+            "path": "C:\\Users\\p\\.claude-work\\.multi-account.json"
+          },
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

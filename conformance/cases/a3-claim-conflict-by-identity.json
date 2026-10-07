@@ -1,0 +1,54 @@
+{
+  "id": "a3-claim-conflict-by-identity",
+  "description": "the conflict is by identity: a link spelling clashes",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1}"
+    },
+    "/home/p/.claude-personal/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"directories\": [\"/srv/a\"]}"
+    },
+    "/srv/a": {
+      "type": "dir"
+    },
+    "/srv/alias": {
+      "type": "symlink",
+      "target": "/srv/a"
+    }
+  },
+  "op": {
+    "name": "claim",
+    "args": {
+      "name": "work",
+      "dir": "/srv/alias"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "CLAIM_CONFLICT",
+      "path": "/srv/alias"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account.json": {
+      "contentJson": {
+        "version": 1
+      }
+    }
+  }
+}

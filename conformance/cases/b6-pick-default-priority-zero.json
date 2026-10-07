@@ -1,0 +1,38 @@
+{
+  "id": "b6-pick-default-priority-zero",
+  "description": "missing priority is 0, ties by name",
+  "spec": [
+    "B6"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-z/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\"}"
+    },
+    "/home/p/.claude-m/.multi-account.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"pool\": \"p\"}"
+    }
+  },
+  "op": {
+    "name": "pick",
+    "args": {
+      "pool": "p"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "m"
+    }
+  }
+}

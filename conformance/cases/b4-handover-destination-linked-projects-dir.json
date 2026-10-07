@@ -1,0 +1,53 @@
+{
+  "id": "b4-handover-destination-linked-projects-dir",
+  "description": "a linked destination projects directory blocks",
+  "spec": [
+    "B4"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a": {
+      "type": "dir"
+    },
+    "/home/p/.claude-b": {
+      "type": "dir"
+    },
+    "/home/p/.claude-a/projects/-x/sess-1.jsonl": {
+      "type": "file",
+      "content": "a"
+    },
+    "/home/p/.claude-b/projects": {
+      "type": "symlink",
+      "target": "/data/p"
+    },
+    "/data/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "handover_session",
+    "args": {
+      "id": "sess-1",
+      "from": "a",
+      "to": "b"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "DESTINATION_BLOCKED",
+      "path": "/home/p/.claude-b/projects"
+    }
+  },
+  "expectFs": {
+    "/data/p/-x": null
+  }
+}

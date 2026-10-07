@@ -1,0 +1,42 @@
+{
+  "id": "b5-mark-limits-not-array-refused",
+  "description": "limits that is not an array is refused",
+  "spec": [
+    "B5"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.multi-account-state.json": {
+      "type": "file",
+      "content": "{\"version\": 1, \"limits\": {}}"
+    }
+  },
+  "op": {
+    "name": "mark_limited",
+    "args": {
+      "name": "work",
+      "entry": {
+        "window": "seven_day",
+        "model": "opus",
+        "until": "2026-10-09T14:00:00Z",
+        "reason": "rate_limit",
+        "updatedBy": "my-swapper"
+      }
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "STATE_FILE_INVALID",
+      "path": "/home/p/.claude-work/.multi-account-state.json"
+    }
+  }
+}

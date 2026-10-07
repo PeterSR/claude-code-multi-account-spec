@@ -1,0 +1,42 @@
+{
+  "id": "a4-map-win32-junction-resolved-target",
+  "description": "win32 row 5: junction target",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "junction",
+      "target": "D:\\data\\work"
+    },
+    "D:\\data\\work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "D:\\data\\work"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "canonical": false,
+      "reason": "resolved-target",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

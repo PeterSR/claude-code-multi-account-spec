@@ -1,0 +1,40 @@
+{
+  "id": "b7-slot-unsupported-win32-credman-flag",
+  "description": "win32 with the GrowthBook flag cached in ~/.claude.json",
+  "spec": [
+    "B7"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude\\.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "C:\\Users\\p\\.claude.json": {
+      "type": "file",
+      "content": "{\"cachedGrowthBookFeatures\": {\"tengu_windows_credman\": true}}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "unsupported",
+      "name": null
+    }
+  }
+}

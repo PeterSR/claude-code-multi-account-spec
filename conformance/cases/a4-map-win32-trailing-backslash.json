@@ -1,0 +1,38 @@
+{
+  "id": "a4-map-win32-trailing-backslash",
+  "description": "win32 row 2: trailing separator",
+  "spec": [
+    "A4 Step 1 mapping"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "map_config_dir",
+    "args": {
+      "value": "C:\\Users\\p\\.claude-work\\"
+    }
+  },
+  "expect": {
+    "result": {
+      "account": "work",
+      "canonical": false,
+      "reason": "not-normalized",
+      "warnings": [
+        "NON_CANONICAL_CONFIG_DIR"
+      ]
+    }
+  }
+}

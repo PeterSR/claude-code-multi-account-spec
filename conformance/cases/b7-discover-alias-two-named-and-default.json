@@ -1,0 +1,81 @@
+{
+  "id": "b7-discover-alias-two-named-and-default",
+  "description": "with default in the slot and a second link to the account, the first name represents the group",
+  "spec": [
+    "B7",
+    "A2 Relocation"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    },
+    "/home/p/.claude.json": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work/.claude.json"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    },
+    "/home/p/.claude-abc": {
+      "type": "symlink",
+      "target": "/home/p/.claude-work"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": true,
+          "aliasOf": "abc",
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "abc",
+          "configDir": "/home/p/.claude-abc",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": true,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "work",
+          "configDir": "/home/p/.claude-work",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": true,
+          "aliasOf": "abc",
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

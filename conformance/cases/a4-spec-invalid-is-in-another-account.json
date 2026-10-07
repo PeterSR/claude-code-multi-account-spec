@@ -1,0 +1,39 @@
+{
+  "id": "a4-spec-invalid-is-in-another-account",
+  "description": "it does not matter which account owns the invalid file",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-bad/.multi-account.json": {
+      "type": "file",
+      "content": "{nope"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/proj": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "SPEC_FILE_INVALID",
+      "path": "/home/p/.claude-bad/.multi-account.json"
+    }
+  }
+}

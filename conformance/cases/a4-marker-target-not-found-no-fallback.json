@@ -1,0 +1,40 @@
+{
+  "id": "a4-marker-target-not-found-no-fallback",
+  "description": "a missing account never falls back to a parent binding",
+  "spec": [
+    "A4 Step 2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "ghost"
+    },
+    "/home/p/.claude-account": {
+      "type": "file",
+      "content": "work"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_NOT_FOUND",
+      "path": "/home/p/proj/.claude-account"
+    }
+  }
+}

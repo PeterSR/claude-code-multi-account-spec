@@ -1,0 +1,36 @@
+{
+  "id": "a4-env-both-set-dangling-account",
+  "description": "both vars agree on a dangling account: ACCOUNT_UNAVAILABLE, not a conflict",
+  "spec": [
+    "A4 Step 1.2"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {
+    "CLAUDE_CONFIG_DIR": "/home/p/.claude-work",
+    "CLAUDE_MULTI_ACCOUNT": "work"
+  },
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "symlink",
+      "target": "/mnt/gone"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_UNAVAILABLE",
+      "path": "/home/p/.claude-work"
+    }
+  }
+}

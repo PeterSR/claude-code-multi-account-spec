@@ -1,0 +1,33 @@
+{
+  "id": "a3-unclaim-account-not-found",
+  "description": "unknown account",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "unclaim",
+    "args": {
+      "name": "work",
+      "dir": "/srv/a"
+    }
+  },
+  "expect": {
+    "error": {
+      "code": "ACCOUNT_NOT_FOUND",
+      "path": "/home/p/.claude-work"
+    }
+  },
+  "expectFs": {}
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "names": [
+    {
+      "name": "default",
+      "why": "names ~/.claude itself"
+    },
+    {
+      "name": "account",
+      "why": "~/.claude-account is the marker file path in $HOME"
+    },
+    {
+      "name": "swap-backup",
+      "why": "cswap (claude-swap) backup directory ~/.claude-swap-backup"
+    },
+    {
+      "name": "profiles",
+      "why": "ccsw profile directory ~/.claude-profiles"
+    }
+  ]
+}

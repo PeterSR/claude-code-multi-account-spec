@@ -1,0 +1,214 @@
+{
+  "id": "a2-discover-chain-40-hops",
+  "description": "a chain of 40 links still resolves",
+  "spec": [
+    "A2 Discovery"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-chain": {
+      "type": "symlink",
+      "target": "/home/p/hop/1"
+    },
+    "/home/p/hop/1": {
+      "type": "symlink",
+      "target": "/home/p/hop/2"
+    },
+    "/home/p/hop/2": {
+      "type": "symlink",
+      "target": "/home/p/hop/3"
+    },
+    "/home/p/hop/3": {
+      "type": "symlink",
+      "target": "/home/p/hop/4"
+    },
+    "/home/p/hop/4": {
+      "type": "symlink",
+      "target": "/home/p/hop/5"
+    },
+    "/home/p/hop/5": {
+      "type": "symlink",
+      "target": "/home/p/hop/6"
+    },
+    "/home/p/hop/6": {
+      "type": "symlink",
+      "target": "/home/p/hop/7"
+    },
+    "/home/p/hop/7": {
+      "type": "symlink",
+      "target": "/home/p/hop/8"
+    },
+    "/home/p/hop/8": {
+      "type": "symlink",
+      "target": "/home/p/hop/9"
+    },
+    "/home/p/hop/9": {
+      "type": "symlink",
+      "target": "/home/p/hop/10"
+    },
+    "/home/p/hop/10": {
+      "type": "symlink",
+      "target": "/home/p/hop/11"
+    },
+    "/home/p/hop/11": {
+      "type": "symlink",
+      "target": "/home/p/hop/12"
+    },
+    "/home/p/hop/12": {
+      "type": "symlink",
+      "target": "/home/p/hop/13"
+    },
+    "/home/p/hop/13": {
+      "type": "symlink",
+      "target": "/home/p/hop/14"
+    },
+    "/home/p/hop/14": {
+      "type": "symlink",
+      "target": "/home/p/hop/15"
+    },
+    "/home/p/hop/15": {
+      "type": "symlink",
+      "target": "/home/p/hop/16"
+    },
+    "/home/p/hop/16": {
+      "type": "symlink",
+      "target": "/home/p/hop/17"
+    },
+    "/home/p/hop/17": {
+      "type": "symlink",
+      "target": "/home/p/hop/18"
+    },
+    "/home/p/hop/18": {
+      "type": "symlink",
+      "target": "/home/p/hop/19"
+    },
+    "/home/p/hop/19": {
+      "type": "symlink",
+      "target": "/home/p/hop/20"
+    },
+    "/home/p/hop/20": {
+      "type": "symlink",
+      "target": "/home/p/hop/21"
+    },
+    "/home/p/hop/21": {
+      "type": "symlink",
+      "target": "/home/p/hop/22"
+    },
+    "/home/p/hop/22": {
+      "type": "symlink",
+      "target": "/home/p/hop/23"
+    },
+    "/home/p/hop/23": {
+      "type": "symlink",
+      "target": "/home/p/hop/24"
+    },
+    "/home/p/hop/24": {
+      "type": "symlink",
+      "target": "/home/p/hop/25"
+    },
+    "/home/p/hop/25": {
+      "type": "symlink",
+      "target": "/home/p/hop/26"
+    },
+    "/home/p/hop/26": {
+      "type": "symlink",
+      "target": "/home/p/hop/27"
+    },
+    "/home/p/hop/27": {
+      "type": "symlink",
+      "target": "/home/p/hop/28"
+    },
+    "/home/p/hop/28": {
+      "type": "symlink",
+      "target": "/home/p/hop/29"
+    },
+    "/home/p/hop/29": {
+      "type": "symlink",
+      "target": "/home/p/hop/30"
+    },
+    "/home/p/hop/30": {
+      "type": "symlink",
+      "target": "/home/p/hop/31"
+    },
+    "/home/p/hop/31": {
+      "type": "symlink",
+      "target": "/home/p/hop/32"
+    },
+    "/home/p/hop/32": {
+      "type": "symlink",
+      "target": "/home/p/hop/33"
+    },
+    "/home/p/hop/33": {
+      "type": "symlink",
+      "target": "/home/p/hop/34"
+    },
+    "/home/p/hop/34": {
+      "type": "symlink",
+      "target": "/home/p/hop/35"
+    },
+    "/home/p/hop/35": {
+      "type": "symlink",
+      "target": "/home/p/hop/36"
+    },
+    "/home/p/hop/36": {
+      "type": "symlink",
+      "target": "/home/p/hop/37"
+    },
+    "/home/p/hop/37": {
+      "type": "symlink",
+      "target": "/home/p/hop/38"
+    },
+    "/home/p/hop/38": {
+      "type": "symlink",
+      "target": "/home/p/hop/39"
+    },
+    "/home/p/hop/39": {
+      "type": "symlink",
+      "target": "/home/p/hop/end"
+    },
+    "/home/p/hop/end": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "discover",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "accounts": [
+        {
+          "name": "default",
+          "configDir": "/home/p/.claude",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        },
+        {
+          "name": "chain",
+          "configDir": "/home/p/.claude-chain",
+          "state": "ok",
+          "hasSpecFile": false,
+          "hasGlobalConfig": false,
+          "aliasOf": null,
+          "specError": null,
+          "warnings": []
+        }
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  }
+}

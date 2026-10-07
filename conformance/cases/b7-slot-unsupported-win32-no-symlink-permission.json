@@ -1,0 +1,42 @@
+{
+  "id": "b7-slot-unsupported-win32-no-symlink-permission",
+  "description": "win32 without permission to create file symlinks",
+  "spec": [
+    "B7"
+  ],
+  "platform": "win32",
+  "caseInsensitive": true,
+  "home": "C:\\Users\\p",
+  "cwd": "C:\\Users\\p",
+  "env": {},
+  "options": {
+    "canCreateSymlinks": false
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "C:\\Users\\p": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude": {
+      "type": "dir"
+    },
+    "C:\\Users\\p\\.claude\\.credentials.json": {
+      "type": "file",
+      "content": "cred"
+    },
+    "C:\\Users\\p\\.claude.json": {
+      "type": "file",
+      "content": "{\"a\":1}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "unsupported",
+      "name": null
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "b3-caller-domain-input",
+  "description": "the caller domain is an input",
+  "spec": [
+    "B3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work/sessions/101.json": {
+      "type": "file",
+      "content": "{\"pid\": 101, \"sessionId\": \"s-101\", \"procStart\": \"T1\", \"pidDomain\": \"wsl-1\"}"
+    }
+  },
+  "processes": {
+    "101": {
+      "procStart": "T1",
+      "pidDomain": "wsl-1"
+    }
+  },
+  "callerPidDomain": "wsl-1",
+  "op": {
+    "name": "live_sessions",
+    "args": {
+      "name": "work"
+    }
+  },
+  "expect": {
+    "result": {
+      "sessions": [
+        {
+          "pid": 101,
+          "sessionId": "s-101",
+          "status": "live"
+        }
+      ]
+    }
+  }
+}

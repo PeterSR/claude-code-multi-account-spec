@@ -1,0 +1,48 @@
+{
+  "id": "a3-update-spec-file-creates",
+  "description": "no file yet: created with version 1",
+  "spec": [
+    "A3"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "update_spec_file",
+    "args": {
+      "name": "work",
+      "patch": {
+        "label": "L"
+      }
+    }
+  },
+  "expect": {
+    "result": {
+      "version": 1,
+      "label": "L"
+    }
+  },
+  "expectFs": {
+    "/home/p/.claude-work/.multi-account.json": {
+      "type": "file",
+      "mode": "0600",
+      "contentJson": {
+        "version": 1,
+        "label": "L"
+      }
+    },
+    "/home/p/.claude-work/.multi-account.json.lock": null
+  }
+}

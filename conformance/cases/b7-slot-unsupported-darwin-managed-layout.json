@@ -1,0 +1,44 @@
+{
+  "id": "b7-slot-unsupported-darwin-managed-layout",
+  "description": "unsupported beats managed",
+  "spec": [
+    "B7"
+  ],
+  "platform": "darwin",
+  "caseInsensitive": true,
+  "home": "/Users/p",
+  "cwd": "/Users/p",
+  "env": {},
+  "options": {},
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/Users/p": {
+      "type": "dir"
+    },
+    "/Users/p/.claude": {
+      "type": "symlink",
+      "target": "/Users/p/.claude-work"
+    },
+    "/Users/p/.claude.json": {
+      "type": "symlink",
+      "target": "/Users/p/.claude-work/.claude.json"
+    },
+    "/Users/p/.claude-work": {
+      "type": "dir"
+    },
+    "/Users/p/.claude-work/.claude.json": {
+      "type": "file",
+      "content": "{}"
+    }
+  },
+  "op": {
+    "name": "slot",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "state": "unsupported",
+      "name": null
+    }
+  }
+}

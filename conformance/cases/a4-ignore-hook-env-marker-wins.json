@@ -1,0 +1,69 @@
+{
+  "id": "a4-ignore-hook-env-marker-wins",
+  "description": "ignoreHookEnv with SOURCE=hook drops the earlier export so the marker applies",
+  "spec": [
+    "A4 Step 0"
+  ],
+  "platform": "linux",
+  "caseInsensitive": false,
+  "home": "/home/p",
+  "cwd": "/home/p/proj",
+  "env": {
+    "CLAUDE_MULTI_ACCOUNT": "work",
+    "CLAUDE_MULTI_ACCOUNT_SOURCE": "hook"
+  },
+  "options": {
+    "ignoreHookEnv": true
+  },
+  "now": "2026-10-06T12:00:00Z",
+  "fs": {
+    "/home/p": {
+      "type": "dir"
+    },
+    "/home/p/proj/.claude-account": {
+      "type": "file",
+      "content": "personal\n"
+    },
+    "/home/p/.claude-work": {
+      "type": "dir"
+    },
+    "/home/p/.claude-personal": {
+      "type": "dir"
+    }
+  },
+  "op": {
+    "name": "resolve",
+    "args": {}
+  },
+  "expect": {
+    "result": {
+      "account": "personal",
+      "pool": null,
+      "configDir": "/home/p/.claude-personal",
+      "canonical": true,
+      "reason": null,
+      "source": "marker-file",
+      "matchedPath": "/home/p/proj/.claude-account",
+      "exists": true,
+      "aliasOf": null,
+      "launchEnv": {
+        "set": {
+          "CLAUDE_CONFIG_DIR": "/home/p/.claude-personal",
+          "CLAUDE_MULTI_ACCOUNT": "personal"
+        },
+        "unset": [
+          "CLAUDE_MULTI_ACCOUNT_SOURCE",
+          "CLAUDE_SECURESTORAGE_CONFIG_DIR"
+        ]
+      },
+      "overriddenBy": [],
+      "ignoredMarkers": [],
+      "warnings": [],
+      "applied": true,
+      "candidates": [
+        "personal"
+      ],
+      "globalConfig": "/home/p/.claude-personal/.claude.json"
+    }
+  }
+}
