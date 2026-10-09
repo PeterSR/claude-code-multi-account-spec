@@ -1,0 +1,81 @@
+name: Release
+
+# Publishes the TypeScript and Python libraries with trusted publishing (OIDC, no tokens).
+# Runs when a GitHub release is published, or by hand from a branch. A version that is
+# already on the registry is skipped, so a rerun is safe.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.read.outputs.version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - id: read
+        name: Check that the package versions agree with each other and the tag
+        run: |
+          ts=$(node -p "require('./typescript/package.json').version")
+          py=$(sed -n 's/^version = "\(.*\)"$/\1/p' python/pyproject.toml)
+          echo "typescript $ts, python $py"
+          [ "$ts" = "$py" ] || { echo "versions differ"; exit 1; }
+          if [ "$GITHUB_EVENT_NAME" = release ] && [ "$GITHUB_REF_NAME" != "v$ts" ]; then
+            echo "tag $GITHUB_REF_NAME does not match version $ts"; exit 1
+          fi
+          echo "version=$ts" >> "$GITHUB_OUTPUT"
+
+  pypi:
+    needs: [test, versions]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/claude-code-multi-account-core/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+      - name: Build
+        working-directory: python
+        run: uv build
+      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+        with:
+          packages-dir: python/dist
+          skip-existing: true
+
+  npm:
+    needs: [test, versions]
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/claude-code-multi-account-core
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          registry-url: https://registry.npmjs.org
+      # Trusted publishing needs npm 11.5.1 or newer.
+      - run: npm install -g npm@11
+      - name: Build and publish
+        working-directory: typescript
+        env:
+          VERSION: ${{ needs.versions.outputs.version }}
+        run: |
+          if npm view "claude-code-multi-account-core@$VERSION" version >/dev/null 2>&1; then
+            echo "$VERSION is already on npm, skipping"; exit 0
+          fi
+          npm ci && npm run build
+          npm publish --provenance --access public
