@@ -19,9 +19,9 @@ Run these and report a concise PASS/FAIL table:
 
 2. **Per-language unit tests** (only for libraries that exist)
    ```sh
-   (cd clients/go && go vet ./... && go test ./...)
-   (cd clients/typescript && npm run build && npm test)
-   uv run --project clients/python pytest
+   (cd go && go vet ./... && go test ./...)
+   (cd typescript && npm run build && npm test)
+   uv run --project python pytest
    ```
 
 3. **Cross-library conformance** (builds and runs the Go, TypeScript and Python runners on every case)
@@ -33,7 +33,7 @@ Run these and report a concise PASS/FAIL table:
    do not count it as a pass.
 
 4. **API-surface audit** - open [`PARITY.md`](../../../PARITY.md) and confirm every row exists in
-   `clients/go`, `clients/typescript` and `clients/python` under the listed name. A capability in one
+   `go`, `typescript` and `python` under the listed name. A capability in one
    library but missing in another is a parity break. If the spec gained an op, it must appear in the
    spec, `conformance/FORMAT.md`, `conformance/gen/`, the cases, `validate_cases.py`, all three
    libraries and the parity matrix.

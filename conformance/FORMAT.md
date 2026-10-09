@@ -23,9 +23,9 @@ Each library ships a runner executable. Run from the repo root:
 
 | Lang | Command | Must exist |
 |---|---|---|
-| Go | `go run ./clients/go/cmd/conformance-runner` | `clients/go/cmd/conformance-runner/` |
-| TypeScript | `node clients/typescript/dist/conformance-runner.js` | that file |
-| Python | `uv run --project clients/python python -m claude_code_multi_account.conformance_runner` | a `conformance_runner.py` under `clients/python/` |
+| Go | `go run ./go/cmd/conformance-runner` | `go/cmd/conformance-runner/` |
+| TypeScript | `node typescript/dist/conformance-runner.js` | that file |
+| Python | `uv run --project python python -m claude_code_multi_account.conformance_runner` | a `conformance_runner.py` under `python/` |
 
 run.sh runs every runner with the repo root as working directory. For speed it builds the Go runner
 once (`go build`) instead of calling `go run` per case. The runner reads ONE case JSON document on stdin, builds the fake world from it, runs the op, and

@@ -21,9 +21,9 @@ venv/
 *.egg-info/
 *.tsbuildinfo
 *.tgz
-/clients/typescript/src/reserved-data.ts
-/clients/go/conformance-runner
-/clients/go/conformance-runner.exe
+/typescript/src/reserved-data.ts
+/go/conformance-runner
+/go/conformance-runner.exe
 
 # Caches and temporary files
 __pycache__/

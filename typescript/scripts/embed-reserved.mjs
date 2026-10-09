@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const source = join(here, "..", "..", "..", "spec", "reserved.json");
+const source = join(here, "..", "..", "spec", "reserved.json");
 const data = JSON.parse(readFileSync(source, "utf8"));
 const names = data.names.map((entry) => entry.name);
 const body =

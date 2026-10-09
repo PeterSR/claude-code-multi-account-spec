@@ -1,5 +1,5 @@
 {
-  "name": "claude-code-multi-account",
+  "name": "claude-code-multi-account-core",
   "version": "0.2.2",
   "description": "Storage and addressing for several Claude Code accounts on one machine (TypeScript library).",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "embed": "node scripts/embed-reserved.mjs",
     "build": "npm run embed && tsc -p tsconfig.json",
     "test": "npm run embed && tsc -p tsconfig.test.json && node --test dist-test/test/*.test.js",
-    "conformance": "npm run build && ../../conformance/run.sh --runner ts",
+    "conformance": "npm run build && ../conformance/run.sh --runner ts",
     "prepack": "npm run build"
   },
   "devDependencies": {
@@ -33,6 +33,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PeterSR/claude-code-multi-account-spec.git",
-    "directory": "clients/typescript"
+    "directory": "typescript"
   }
 }

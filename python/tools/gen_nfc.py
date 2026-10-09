@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generates src/claude_code_multi_account/nfc_tables.py (Unicode data for the bundled NFC).
 
-Run with a Python build providing Unicode 16.0.0 (such as Python 3.14), from clients/python:
+Run with a Python build providing Unicode 16.0.0 (such as Python 3.14), from python:
   python3 tools/gen_nfc.py > src/claude_code_multi_account/nfc_tables.py
 """
 import sys

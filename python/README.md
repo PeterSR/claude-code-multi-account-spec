@@ -1,4 +1,4 @@
-# claude-code-multi-account
+# claude-code-multi-account-core
 
 Python library for version 0.2.2 of the Claude Code multi account spec. Import it as
 `claude_code_multi_account`. Requires Python 3.10 or newer.

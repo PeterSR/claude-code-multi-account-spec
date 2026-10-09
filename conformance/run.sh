@@ -52,29 +52,29 @@ if [ -n "$custom" ]; then
 fi
 
 if wanted go; then
-  if [ -d clients/go/cmd/conformance-runner ]; then
-    if [ -f clients/go/go.mod ]; then
-      (cd clients/go && go build -o "$TMP/ccma-go" ./cmd/conformance-runner)
+  if [ -d go/cmd/conformance-runner ]; then
+    if [ -f go/go.mod ]; then
+      (cd go && go build -o "$TMP/ccma-go" ./cmd/conformance-runner)
     else
-      go build -o "$TMP/ccma-go" ./clients/go/cmd/conformance-runner
+      go build -o "$TMP/ccma-go" ./go/cmd/conformance-runner
     fi
     if [ -x "$TMP/ccma-go" ]; then runners+=("go=$TMP/ccma-go"); else echo "NOTICE go: build failed"; missing=1; fi
   else
-    echo "NOTICE go: runner not found (clients/go/cmd/conformance-runner), skipped"; missing=1
+    echo "NOTICE go: runner not found (go/cmd/conformance-runner), skipped"; missing=1
   fi
 fi
 if wanted ts; then
-  if [ -f clients/typescript/dist/conformance-runner.js ]; then
-    runners+=("ts=node clients/typescript/dist/conformance-runner.js")
+  if [ -f typescript/dist/conformance-runner.js ]; then
+    runners+=("ts=node typescript/dist/conformance-runner.js")
   else
-    echo "NOTICE ts: runner not found (clients/typescript/dist/conformance-runner.js), skipped"; missing=1
+    echo "NOTICE ts: runner not found (typescript/dist/conformance-runner.js), skipped"; missing=1
   fi
 fi
 if wanted py; then
-  if [ -n "$(find clients/python -name conformance_runner.py -not -path '*/node_modules/*' -not -path '*/.venv/*' 2>/dev/null | head -n1)" ]; then
-    runners+=("py=uv run --project clients/python python -m claude_code_multi_account.conformance_runner")
+  if [ -n "$(find python -name conformance_runner.py -not -path '*/node_modules/*' -not -path '*/.venv/*' 2>/dev/null | head -n1)" ]; then
+    runners+=("py=uv run --project python python -m claude_code_multi_account.conformance_runner")
   else
-    echo "NOTICE py: runner not found (conformance_runner.py under clients/python), skipped"; missing=1
+    echo "NOTICE py: runner not found (conformance_runner.py under python), skipped"; missing=1
   fi
 fi
 

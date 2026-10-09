@@ -5,9 +5,9 @@ language; **behaviour** must be identical and is enforced by the conformance sui
 ([`conformance/`](conformance), format in [`conformance/FORMAT.md`](conformance/FORMAT.md)). Any new
 op or behaviour lands in the spec, the case files, and **all three libraries** in the same change.
 
-Go package `multiaccount` (`clients/go`), TypeScript package `claude-code-multi-account`
-(`clients/typescript`), Python import name
-`claude_code_multi_account` (`clients/python`). Part A is mandatory in every library. Part B ops
+Go package `multiaccount` (`go`), TypeScript package `claude-code-multi-account-core`
+(`typescript`), Python distribution `claude-code-multi-account-core` with import name
+`claude_code_multi_account` (`python`). Part A is mandatory in every library. Part B ops
 apply to the blocks a library ships, but all three ship the same blocks.
 
 Names below record the current library APIs; the libraries must match this table.

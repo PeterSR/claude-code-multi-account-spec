@@ -6,18 +6,26 @@ provides libraries, not an account switching CLI.
 
 - [SPEC.md](SPEC.md): account storage, addressing and optional building blocks.
 - [spec/reserved.json](spec/reserved.json): reserved account names.
-- [clients/](clients): the three libraries.
+- [go/](go), [typescript/](typescript), [python/](python): the three libraries.
 - [conformance/FORMAT.md](conformance/FORMAT.md): shared case format and runner protocol.
 - [PARITY.md](PARITY.md): library API parity; [SPEC-GAPS.md](conformance/SPEC-GAPS.md): open questions.
 
-Use Go 1.25 or newer, Node.js 22 or newer, Python 3.10 or newer, and uv. Install the
-TypeScript development dependencies with `npm ci` in `clients/typescript`; uv installs the
+Install a library:
+
+```sh
+go get github.com/PeterSR/claude-code-multi-account-spec/go@v0.2.2
+npm install claude-code-multi-account-core
+pip install claude-code-multi-account-core   # import claude_code_multi_account
+```
+
+To develop, use Go 1.25 or newer, Node.js 22 or newer, Python 3.10 or newer, and uv. Install the
+TypeScript development dependencies with `npm ci` in `typescript`; uv installs the
 Python development dependencies when running the tests. From the repository root:
 
 ```sh
-(cd clients/typescript && npm run build && npm test)
-(cd clients/go && go vet ./... && go test ./...)
-(cd clients/python && uv run pytest -q)
+(cd typescript && npm run build && npm test)
+(cd go && go vet ./... && go test ./...)
+(cd python && uv run pytest -q)
 python3 conformance/validate_cases.py
 conformance/run.sh --require-all
 ```

@@ -48,7 +48,7 @@ def test_rename_over_file_and_dump() -> None:
 
 
 def test_packaged_reserved_matches_spec() -> None:
-    spec = Path(__file__).resolve().parents[3] / "spec" / "reserved.json"
+    spec = Path(__file__).resolve().parents[2] / "spec" / "reserved.json"
     if not spec.exists():
         pytest.skip("not inside the spec repo")
     assert reserved_names() == tuple(n["name"] for n in json.loads(spec.read_text())["names"])
@@ -69,7 +69,7 @@ def test_bundled_nfc_matches_go_tables_and_known_cases() -> None:
     assert nfc("각") == "각"
     assert nfc("Å") == "Å"
     assert nfc("\U00010d69") == "\U00010d69"
-    go = Path(__file__).resolve().parents[3] / "clients" / "go" / "nfc_tables.go"
+    go = Path(__file__).resolve().parents[2] / "go" / "nfc_tables.go"
     if not go.exists():
         pytest.skip("Go tables not found")
     text = go.read_text()

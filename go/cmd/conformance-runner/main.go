@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	ma "github.com/PeterSR/claude-code-multi-account-spec/clients/go"
+	ma "github.com/PeterSR/claude-code-multi-account-spec/go"
 )
 
 type testCase struct {

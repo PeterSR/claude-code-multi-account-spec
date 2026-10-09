@@ -2,7 +2,7 @@
 """Generates nfc_tables.go (Unicode data for the NFC implementation) from Python's unicodedata.
 
 Use a Python build with Unicode 16.0.0 (such as Python 3.14).
-Run from clients/go: python3 tools/gen_nfc.py > nfc_tables.go
+Run from go: python3 tools/gen_nfc.py > nfc_tables.go
 """
 import sys
 import unicodedata as ud

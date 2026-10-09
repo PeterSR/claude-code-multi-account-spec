@@ -26,7 +26,7 @@ func TestNFC(t *testing.T) {
 }
 
 func TestEmbeddedReservedMatchesSpec(t *testing.T) {
-	b, err := os.ReadFile("../../spec/reserved.json")
+	b, err := os.ReadFile("../spec/reserved.json")
 	if err != nil {
 		t.Skip("spec/reserved.json not found:", err)
 	}

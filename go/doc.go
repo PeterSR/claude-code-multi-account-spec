@@ -11,5 +11,5 @@
 // rewrites credentials and never refreshes tokens.
 package multiaccount
 
-//go:generate cp ../../spec/reserved.json reserved.json
+//go:generate cp ../spec/reserved.json reserved.json
 //go:generate sh -c "python3 tools/gen_nfc.py > nfc_tables.go && gofmt -w nfc_tables.go"

@@ -32,7 +32,7 @@ function real(home: string): Inputs {
 
 describe("reserved names", () => {
   test("the embedded list matches spec/reserved.json", () => {
-    const data = JSON.parse(readFileSync(join(import.meta.dirname, "..", "..", "..", "..", "spec", "reserved.json"), "utf8")) as {
+    const data = JSON.parse(readFileSync(join(import.meta.dirname, "..", "..", "..", "spec", "reserved.json"), "utf8")) as {
       names: { name: string }[];
     };
     assert.deepEqual([...reservedNames()], data.names.map((n) => n.name));
