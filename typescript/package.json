@@ -1,6 +1,6 @@
 {
   "name": "claude-code-multi-account-core",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Storage and addressing for several Claude Code accounts on one machine (TypeScript library).",
   "license": "MIT",
   "type": "module",

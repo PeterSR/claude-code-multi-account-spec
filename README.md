@@ -1,7 +1,7 @@
 # Claude Code multi account spec
 
 A draft standard and Go, TypeScript and Python libraries for storing and addressing multiple
-Claude Code accounts on one machine. The spec and libraries are version 0.2.2. This project
+Claude Code accounts on one machine. The spec and libraries are version 0.2.3. This project
 provides libraries, not an account switching CLI.
 
 - [SPEC.md](SPEC.md): account storage, addressing and optional building blocks.
@@ -13,7 +13,7 @@ provides libraries, not an account switching CLI.
 Install a library:
 
 ```sh
-go get github.com/PeterSR/claude-code-multi-account-spec/go@v0.2.2
+go get github.com/PeterSR/claude-code-multi-account-spec/go@v0.2.3
 npm install claude-code-multi-account-core
 pip install claude-code-multi-account-core   # import claude_code_multi_account
 ```

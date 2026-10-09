@@ -1,4 +1,4 @@
-# claude-code-multi-account-spec (draft v0.2.2)
+# claude-code-multi-account-spec (draft v0.2.3)
 
 A recommended way to **store** several Claude Code accounts on one machine and to **address** them,
 so that switchers, launchers, status lines and shell hooks written by different people agree on
@@ -961,6 +961,11 @@ Known caveats, not relied on:
   ever becomes a config-dir switch, this spec should follow it.
 
 # Changelog
+
+**v0.2.3 (draft)**
+
+- No change to the spec text. The libraries moved to `go/`, `typescript/` and `python/`, and the npm
+  and PyPI packages are named `claude-code-multi-account-core`.
 
 **v0.2.2 (draft)**
 

@@ -1,6 +1,6 @@
 [project]
 name = "claude-code-multi-account-core"
-version = "0.2.2"
+version = "0.2.3"
 description = "Store and address several Claude Code accounts on one machine (library for the claude-code-multi-account spec)."
 readme = "README.md"
 license = "MIT"
